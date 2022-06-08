@@ -1,0 +1,189 @@
+
+
+/**
+* ! width
+*/
+
+.w-100{
+  width: 100%;
+}
+.max-wp60{
+  max-width: 60px;
+}
+
+.max-wp100{
+  max-width: 100px;
+}
+
+.min-w30{
+  min-width: 30%;
+}
+
+.min-w40{
+  min-width: 40%;
+}
+
+/**
+* ! margin
+*/
+
+
+
+
+
+/**
+* ! main swiper
+*/
+
+.patient-coursel-swiper {
+  width: 100%;
+  height: 500px;
+  background: #000;
+}
+
+.patient-coursel-swiper .swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.patient-coursel-swiper .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+.patient-coursel-swiper .swiper-slide{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.patient-coursel-swiper .swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.patient-coursel-swiper .swiper-slide .subtitle {
+  font-size: 21px;
+}
+
+.patient-coursel-swiper .swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
+
+
+/**
+* ! rotation swiper
+*/
+
+.doctor-list-swiper .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.doctor-list-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+.doctor-patient-records-swiper .swiper-slide {
+  width: 239px !important;
+  height: 300px;
+  overflow: auto;
+}
+.doctor-list-swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+
+
+.datagrid-table-toolbar div div .css-9gvgol-MuiDataGrid-toolbarContainer{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.datagrid-table-toolbar div div .css-9gvgol-MuiDataGrid-toolbarContainer button{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+.datagrid-table-toolbar div div .css-6x9wgn{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.datagrid-table-toolbar div div .css-6x9wgn button{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+
+/**
+  * ! Payment Card
+*/
+
+
+
+
+
+.payment-card-view div ._2D_VfCL6PDramYdGNPlSSA{
+  min-width: 270px !important;
+}
+
+@media screen and (min-width: 320px) {
+  .payment-card-view div ._2D_VfCL6PDramYdGNPlSSA{
+    width: 270px !important;
+  }
+  .react-phone-input .react-tel-input .form-control {
+    width: 260px !important;
+  }
+}
+@media screen and (min-width: 375px) {
+  .react-phone-input .react-tel-input .form-control {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .payment-card-view div ._2D_VfCL6PDramYdGNPlSSA{
+    width: 350px !important;
+  }
+}
+
+
+.uploadcare--widget__button_type_open {
+  visibility: hidden;
+}
+
+.uploadcare--widget__button_type_open:after{
+  visibility: visible;
+  content: "Choose Profile Picture";
+}
+
+#uploadcare--widget__text{
+  display: none !important;
+}
+
+
+/** REACT notes widjet */
+.rs-notes--navbar__item--button__upload{
+  display: none !important;
+}
+
+.payment-card-align .rccs{
+  margin: 0px 0px !important;
+}
