@@ -10008,6 +10008,20 @@
   height:250px;
  }
 
+ .frame5 {
+  border: 40px solid transparent;
+  border-image: url(./images/frame10.png) 15% round; 
+  width:200px;
+  height:250px;
+ }
+
+ .frame6 {
+  border: 40px solid transparent;
+  border-image: url(./images/frame6.png) 14% round; 
+  width:200px;
+  height:250px;
+ }
+
 
  .frame11 {
   border: 40px solid transparent;
@@ -10067,7 +10081,32 @@
   height:250px;
  }
  
+ .framePre {
+  border: 40px solid transparent;
+  border-image: url(./images/frame5.png) 15% round; 
+  width:160px;
+  height:192px;
+ }
 
+ 
+ .framePreEx {
+  border: 40px solid transparent;
+  border-image: url(./images/frame2.png) 15% round; 
+  width:160px;
+  height:192px;
+ }
+ .frames {
+  width:180px;
+  height:180px;
+ }
+ 
+ .frameheadbutton {
+  padding-top:40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid #003690; 
+ }
 
  .fi1 {
   width:100%;
@@ -10088,4 +10127,9 @@
 
  .detFrame {
   color: #003690; 
+ }
+
+ .framesDis {
+   padding-top: 10px;
+   padding-bottom: 10px;
  }
