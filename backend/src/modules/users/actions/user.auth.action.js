@@ -152,6 +152,16 @@ exports.auth = {
       next(error);
     }
   },
+  sendContactMessage: async (req, res, next) => {
+    try {
+      const { name, email, message } = req.body;
+      libs.email_service.contactMessage(email, name, message, dataConstraint.sendgridTemplates.contactMessage).then().catch()
+      utils.response.response(res, messages.contactMessageSend, true, 200, null);
+    } catch (error) {
+      console.log(error)
+      next(error);
+    }
+  },
   logout: async (req, res, next) => {
     try {
       const { user } = req;

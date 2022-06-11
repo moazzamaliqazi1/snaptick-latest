@@ -98,42 +98,6 @@ const userSchema = new mongoose.Schema(
         social_visible: true
       }
     },
-    test_reports: [
-      {
-        key: {
-          type: String,
-          default: null
-        },
-        ext: {
-          type: String,
-          default: null
-        }
-      }
-    ],
-    certificates: [
-      {
-        key: {
-          type: String,
-          default: null
-        },
-        ext: {
-          type: String,
-          default: null
-        }
-      }
-    ],
-    languages: {
-      type: Array,
-      default: []
-    },
-    is_published: {
-      type: Boolean,
-      default: true
-    },
-    fee: {
-      type: Number,
-      default: 0
-    },
     payment_cards: [
       {
         cvc: {
@@ -156,37 +120,6 @@ const userSchema = new mongoose.Schema(
         }
       }
     ],
-    firebase_token: {
-      type: Array,
-      default: []
-    },
-    notification: [
-      {
-        date: {
-          type: Date
-        },
-        status: {
-          type: Boolean,
-          default: false
-        },
-        data: {
-          type: Object
-        },
-        title: {
-          type: String,
-        },
-        body: {
-          type: String,
-        },
-        send_by: {
-          type: String
-        }
-      }
-    ],
-    balance: {
-      type: Number,
-      default: 0
-    }
   },
   {
     timestamps: true,
@@ -201,7 +134,7 @@ userSchema.methods.getJWTToken = () => {
   const payload = {
     name: this.name,
     email: this.email,
-    id: this.id,
+    _id: this._id,
     model: "users",
   };
   return JWT.sign(payload, process.env.JWTSECRET, {

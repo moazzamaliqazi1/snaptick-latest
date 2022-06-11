@@ -44,8 +44,6 @@ const loginPayloadValidation = [
     .notEmpty()
     .withMessage(messages.invalidQuery("password"))
     .isString()
-    .custom((value) => isStrongPassword(value))
-    .withMessage(messages.weakPassword),
 ]
 const numberPayloadValidation = [
   body("phone_number")

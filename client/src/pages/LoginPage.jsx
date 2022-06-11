@@ -1,6 +1,5 @@
 import React from "react";
 import { Box } from "@mui/material";
-// import LogoOnlyNaveBar from "../components/shared/LogoOnlyNaveBar";
 import Login from "../components/onboarding/Login";
 
 const LoginPage = () => {

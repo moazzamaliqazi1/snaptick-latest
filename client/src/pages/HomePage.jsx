@@ -1,13 +1,12 @@
 import React from "react";
 import { Box } from "@mui/material";
 import LogoOnlyNaveBar from "../components/shared/LogoOnlyNaveBar";
-import Sliderhome from "../components/shared/Sliderhome";
-import Myservices from "../components/shared/Myservices";
+import SliderHome from "../components/shared/SliderHome";
+import MyServices from "../components/shared/MyServices";
 import About from "../components/shared/About";
 import Footer from "../components/shared/Footer";
-import Reviewbanner from "../components/shared/Reviewbanner.jsx";
+import ReviewBanner from "../components/shared/ReviewBanner.jsx";
 import Contact from "../components/shared/Contact.jsx";
-import EmailSubs from "../components/shared/EmailSubs.jsx";
 import Auth from "../Auth";
 import { useSelector } from "react-redux";
 const HomePage = () => {
@@ -21,10 +20,10 @@ const HomePage = () => {
             <LogoOnlyNaveBar />
           </Box>
           <Box  id='home'>
-            <Sliderhome />
+            <SliderHome />
           </Box>
           <Box style={{ marginBottom: 5 }}>
-            <Myservices />
+            <MyServices />
           </Box>
           <Box id='about' style={{ marginBottom: 5 }}>
             <About />
@@ -33,12 +32,7 @@ const HomePage = () => {
             <Contact />
           </Box>
           <Box style={{ marginBottom: 5 }}>
-            <Reviewbanner />
-          </Box>
-          <Box style={{ marginBottom: 5 }}>
-            <br></br>
-            <br></br>
-            <EmailSubs />
+            <ReviewBanner />
           </Box>
           <Box>
             <Footer />

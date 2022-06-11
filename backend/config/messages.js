@@ -93,5 +93,6 @@ module.exports = {
   successfullyAddPatientAppointmentTitle: 'New Appointment',
   successfullyNewAppointment: (patient_name, time, date)=>{
     return `You have new appointment with ${patient_name} at ${time} on ${date}`
-  }
+  },
+  contactMessageSend: 'Your message is successfully sent',
 };

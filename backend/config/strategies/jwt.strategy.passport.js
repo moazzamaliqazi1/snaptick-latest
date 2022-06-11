@@ -21,7 +21,7 @@ module.exports = function () {
   passport.use(
     new JwtStrategy(opts, async (req, jwt_payload, done) => {
       try {
-        if (!jwt_payload.id) {
+        if (!jwt_payload._id) {
           process.nextTick(function () {
             done({ status: 401, message: messages.InvalidToken }, null);
           });
@@ -35,7 +35,7 @@ module.exports = function () {
             model = roleModel[jwt_payload.role];
           }
           else{
-            let user = await models.Users.findById(jwt_payload.id);
+            let user = await models.Users.findById(jwt_payload._id);
             user ? done(null, user) : done(customError, false);
           }
         }

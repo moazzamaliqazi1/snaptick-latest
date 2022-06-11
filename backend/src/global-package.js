@@ -28,3 +28,4 @@ global.moment = require('moment');
 global.multer = require('multer');
 global.Stripe = require('stripe');
 global.stripe = Stripe(process.env.STRIPE_API_KEY);
+global.cardValidator = require("card-validator");

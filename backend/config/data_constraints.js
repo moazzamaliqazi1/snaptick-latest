@@ -17,6 +17,7 @@ module.exports = {
     register: 1,
     resendCode: 2,
     forgotPasswordEmail: 3,
+    contactMessage: 5
   },
   cardType: {
     card: 'card'

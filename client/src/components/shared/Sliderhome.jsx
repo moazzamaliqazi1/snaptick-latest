@@ -2,7 +2,7 @@ import React from 'react';
 import bannerImage1 from "../../images/bt1.jpg"
 import bannerImage2 from "../../images/bt2.jpg"
 
-const Sliderhome = () => {
+const SliderHome = () => {
   return (
     <>
       <div>
@@ -29,4 +29,4 @@ const Sliderhome = () => {
     </>
   )
 }
-export default Sliderhome
+export default SliderHome

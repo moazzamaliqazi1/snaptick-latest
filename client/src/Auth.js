@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { addUser, backdropLoaderState, patientProfileCompleteMessage, doctorProfileCompleteMessage, setAuthDisplay } from "./redux/action"
+import { useDispatch, useSelector } from "react-redux"
+import { addUser, backdropLoaderState, setAuthDisplay } from "./redux/action"
 import Cookies from 'universal-cookie';
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom"
@@ -20,15 +20,15 @@ const Auth = () => {
                 cookies.set('token', response.data.data.jwt_token, { path: '/' });
                 const { data } = response.data
                 dispatch(setAuthDisplay(false))
-                console.log(data.user_type)
-                if (data.user_type === 'patient') {
+                dispatch(addUser(data))
+                /*if (data.user_type === 'user') {
                     dispatch(addUser(data))
                     if (!data.name || !data.phone_number) {
                         dispatch(patientProfileCompleteMessage("Please complete your profile first"))
                         navigate(`/dashboard/patient/profile/setting`)
                     }
                 }
-                else if (data.user_type === 'doctor') {
+                else if (data.user_type === 'admin') {
                     dispatch(addUser(data))
                     console.log(data.fee)
                     if (!data.name || !data.bio || !data.phone_number || data.languages.length === 0 || !data.fee || data.fee === 0) {
@@ -39,7 +39,7 @@ const Auth = () => {
                 else {
                     dispatch(setAuthDisplay(false))
                     navigate(`/login`)
-                }
+                }*/
             }
             else {
                 dispatch(setAuthDisplay(false))
