@@ -23,6 +23,8 @@ import "swiper/css/navigation"
 // react payment cards
 import 'react-credit-cards/es/styles-compiled.css';
 
+
+
 import React from 'react'
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import LoginPage from "./pages/LoginPage.jsx";
@@ -52,7 +54,7 @@ import SearchDoctorPage from "./pages/SearchDoctorPage.jsx";
 import PatientMedicalTreatmentPage from "./pages/PatientMedicalTreatmentPage.jsx";
 import PatientAppointmentPage from "./pages/PatientAppointmentPage.jsx";
 import DoctorAppointmentPage from "./pages/DoctorAppointmentPage.jsx";
-import PatientPaymentCardPage from "./pages/PatientPaymentCardPage.jsx";
+import PaymentCardPage from "./pages/PaymentCardPage.jsx";
 import PatientAppointmentDetailPage from "./pages/PatientAppointmentDetailPage.jsx";
 import FileViewerShared from './components/shared/FileViewerShared';
 import { Backdrop } from '@mui/material'
@@ -75,12 +77,13 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/PhotoFrame" element={<PhotoFrame />} />
+          <Route exact path="/photo-frame" element={<PhotoFrame />} />
           <Route exact path="/PhotoBook" element={<PhotoBook />} />
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route exact path="/change-password/:user_id/:code" element={<ChangePasswordPage />} />
           <Route exact path="/verify-code/:email" element={<VerifyCodePage />} />
+          <Route exact path="/payment-card" element={<PaymentCardPage />} />
           {
             /**
              * ! File Viewer
@@ -105,7 +108,6 @@ const App = () => {
           <Route exact path="/dashboard/patient/appointments/:_id/details" element={<PatientAppointmentDetailPage />} />
           <Route exact path="/dashboard/patient/profile/setting" element={<PatientProfileSettingPage />} />
           <Route exact path="/dashboard/patient/:doctor_id/book-appointment" element={<BookAppointmentPage />} />
-          <Route exact path="/dashboard/patient/payment-card" element={<PatientPaymentCardPage />} />
           {
             /**
              * ! Doctor Routes

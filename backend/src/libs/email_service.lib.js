@@ -58,10 +58,29 @@ const forgotPasswordSendEmail = async (email, url, templateId) => {
     console.log(error);
   }
 };
-
-
+const contactMessage = async (email, name, message, templateId) => {
+  try {
+    await axios.post(SENDINBLUE, {
+      to: [
+        {
+          email: 'arsalansaleem460@gmail.com',
+          name: "User"
+        }
+      ],
+      templateId: templateId,
+      params: {
+        name,
+        email,
+        message
+      }
+    }, config);
+  } catch (error) {
+    console.log(error);
+  }
+}
 module.exports = {
   registerCode,
   resendCode,
   forgotPasswordSendEmail,
+  contactMessage
 }

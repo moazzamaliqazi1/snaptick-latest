@@ -172,6 +172,14 @@ const user = {
             return errorReturn;
         }
     },
+    sendContactMessage: async (data) => {
+        try {
+            return await axios.post('/api/v1/public/contact-message', data);
+        } catch (error) {
+            console.log(error)
+            return errorReturn;
+        }
+    },
     logout: async (token) => {
         try {
             return await axios.post('/api/v1/logout', {}, {

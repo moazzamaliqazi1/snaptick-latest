@@ -7,54 +7,39 @@ import {
   Button,
   Container,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import onboarding from "../../api/onboarding";
 import validator from "validator";
 import Cookies from "universal-cookie";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/action";
-import { Link } from "react-router-dom"
-import logoImage from "../../images/logo.png"
+import logoImage from "../../images/logo.png";
 
 const Login = () => {
   const dispatch = useDispatch();
   const cookies = new Cookies();
-  const { isEmail, isStrongPassword } = validator;
+  const { isEmail } = validator;
   const [loginFields, setLoginFields] = useState({
     email: "",
     email_error: "",
     is_email_error: false,
     password: "",
-    password_error: "",
-    is_password_error: false,
   });
   const navigate = useNavigate();
   const loginCheck = async () => {
     try {
-      const { email, is_email_error, password, is_password_error } =
-        loginFields;
+      const { email, is_email_error, password } = loginFields;
       if (email && password) {
-        if (is_email_error || is_password_error) {
+        if (is_email_error) {
           toast.error("Please resolves your red messages");
         } else {
           // hit login API
           const result = await onboarding.login(email, password);
           if (result.status === 200 && result.data.is_success) {
             dispatch(addUser(result.data.data));
-            if (result.data.data.user_type === "patient") {
-              // save cookies
-              cookies.set("token", result.data.data.jwt_token, { path: "/" });
-              navigate(`/search/doctors`);
-            }
-            else if (result.data.data.user_type === "doctor") {
-              // save cookies
-              cookies.set("token", result.data.data.jwt_token, { path: "/" });
-              navigate(`/dashboard/doctor/profile`);
-            }
-            else {
-              toast.error("Sorry system detected that you are robot");
-            }
+            cookies.set("token", result.data.data.jwt_token, { path: "/" });
+            navigate(`/`);
           } else if (result.status === 201) {
             navigate(`/verify-code/${email}`);
           } else {
@@ -96,24 +81,11 @@ const Login = () => {
         });
       }
     } else if (name === "password") {
-      if (isStrongPassword(value)) {
-        setLoginFields((prev) => {
-          return {
-            ...prev,
-            is_password_error: false,
-            password_error: "Wrong Password",
-          };
-        });
-      } else {
-        setLoginFields((prev) => {
-          return {
-            ...prev,
-
-            is_password_error: true,
-            password_error: "Wrong Password",
-          };
-        });
-      }
+      setLoginFields((prev) => {
+        return {
+          ...prev,
+        };
+      });
     }
   };
   return (
@@ -136,8 +108,10 @@ const Login = () => {
           className="w-100 min-w40"
         >
           <Box sx={{}}>
-            <Link className="text-decoration-none" to='/HomePage'>
-              <center><img src={logoImage} width="200" height="100" alt="SnapTick" /></center>
+            <Link className="text-decoration-none" to="/HomePage">
+              <center>
+                <img src={logoImage} width="200" height="100" alt="SnapTick" />
+              </center>
             </Link>
           </Box>
           <Box sx={{ mx: 3, my: 2 }}>
@@ -156,7 +130,6 @@ const Login = () => {
           </Box>
           <Box sx={{ mx: 3, my: 2 }}>
             <TextField
-              error={loginFields.is_password_error}
               label="Password"
               variant="outlined"
               type="password"
@@ -164,7 +137,6 @@ const Login = () => {
               name="password"
               value={loginFields.password}
               onChange={loginUseState}
-              helperText={loginFields.password_error}
               fullWidth
             />
           </Box>
@@ -172,7 +144,11 @@ const Login = () => {
             <Button
               variant="contained"
               size="large"
-              sx={{ color: "white", backgroundColor: '#003690', float: 'right' }}
+              sx={{
+                color: "white",
+                backgroundColor: "#003690",
+                float: "right",
+              }}
               onClick={loginCheck}
             >
               Login
@@ -181,29 +157,25 @@ const Login = () => {
           <Divider color="primary" sx={{ mt: 5, mb: 2 }} />
 
           <Box sx={{ mb: 4 }}>
-          <Button
-            variant="text"
-            size="medium"
-            sx={{ color: '#003690', float: 'left' }}
-            onClick={() => navigate("/register")}
-          >
-            don't have account?
-          </Button>
-          <Button
-            variant="text"
-            size="medium"
-            sx={{ color: '#003690', float: 'right' }}
-            onClick={() => navigate("/forgot-password")}
-          >
-            forgot password?
-          </Button>
+            <Button
+              variant="text"
+              size="medium"
+              sx={{ color: "#003690", float: "left" }}
+              onClick={() => navigate("/register")}
+            >
+              don't have account?
+            </Button>
+            <Button
+              variant="text"
+              size="medium"
+              sx={{ color: "#003690", float: "right" }}
+              onClick={() => navigate("/forgot-password")}
+            >
+              forgot password?
+            </Button>
           </Box>
-
         </Paper>
       </Container>
-
-
-
     </>
   );
 };

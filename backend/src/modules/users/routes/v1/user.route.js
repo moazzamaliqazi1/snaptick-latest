@@ -64,6 +64,10 @@ router
         actions.users.edit.changeProfile
     )
     .post(
+        '/public/contact-message',
+        actions.users.auth.sendContactMessage
+    )
+    .post(
         '/logout',
         actions.users.auth.logout
     )

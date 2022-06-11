@@ -2,7 +2,13 @@ import React from "react";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom"
 import logoImage from "../../images/logo.png"
+import { useSelector, useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
+import { addUser } from "../../redux/action";
 const LogoOnlyNaveBar = () => {
+  const cookies = new Cookies();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   return (
     <>
       <Box>
@@ -18,7 +24,7 @@ const LogoOnlyNaveBar = () => {
                   <li><div className="nav-link px-4 link-dark" style={{ cursor: 'pointer', fontSize: 15 }} onClick={() => window.location.replace('/')}>Services</div></li>
                   <div className="dropdown-content">
 
-                    <Link className="link-dark text-decoration-none nav-link px-4 link-dark"  to='/PhotoFrame' >Snap Frame</Link>
+                    <Link className="link-dark text-decoration-none nav-link px-4 link-dark"  to='/photo-frame' >Snap Frame</Link>
                     <Link className="link-dark text-decoration-none nav-link px-4 link-dark"  to='/PhotoBook' >Snap Book</Link>
                   </div>
                 </div>
@@ -28,8 +34,16 @@ const LogoOnlyNaveBar = () => {
               </ul>
 
               <div className="col-md-3 text-end">
-                <i className="bi bi-cart p-2" style={{ backgroundColor: '#003690', color: 'white' }} ></i>
-                <Link className="link-dark text-decoration-none p-3" style={{ color: "#003690" }} to='/login' >LOGIN</Link>
+                {user && user.user_type ? <i className="bi bi-cart p-2" style={{ backgroundColor: '#003690', color: 'white' }} ></i>: null}
+                <Link className="link-dark text-decoration-none p-3" style={{ color: "#003690" }} onClick={(event)=> {
+                  if(user && user.user_name){
+                    event.preventDefault();
+                  }
+                }}  to='/login' >{user && user.user_name ? user.user_name: 'LOGIN'}</Link>
+                {user && user.user_type ? <Link className="link-dark text-decoration-none p-3" style={{ color: "#003690" }} onClick={()=>{
+                  cookies.remove("token");
+                  dispatch(addUser({}));
+                }} to='/login' >LOGOUT</Link>: null}
               </div>
 
             </header>

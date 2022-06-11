@@ -1,12 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
-import PatientNaveBar from "../components/shared/PatientNaveBar";
 import PaymentsCardList from "../components/patient_doctor/PaymentsCardList";
 import AddPaymentCard from "../components/patient_doctor/AddPaymentCard";
 import Auth from "../Auth";
 import { useSelector } from "react-redux";
-
-const PatientPaymentCardPage = () => {
+import LogoOnlyNaveBar from "../components/shared/LogoOnlyNaveBar";
+const PaymentCardPage = () => {
   const initialState = useSelector((state) => state.initialState);
   return (
     <>
@@ -14,7 +13,7 @@ const PatientPaymentCardPage = () => {
       {initialState.authDisplay ? null : (
         <Box>
           <Box>
-            <PatientNaveBar />
+            <LogoOnlyNaveBar />
           </Box>
           <Box>
             <AddPaymentCard />
@@ -27,4 +26,4 @@ const PatientPaymentCardPage = () => {
     </>
   );
 };
-export default PatientPaymentCardPage;
+export default PaymentCardPage;
