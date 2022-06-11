@@ -31,7 +31,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import PhotoFrame from "./pages/Phframe.jsx";
 import PhotoBook from "./pages/PhBook.jsx";
-
+import Cart from "./pages/Cart.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import VerifyCodePage from "./pages/VerifyCodePage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
@@ -78,6 +78,7 @@ const App = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/photo-frame" element={<PhotoFrame />} />
+          <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/PhotoBook" element={<PhotoBook />} />
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/forgot-password" element={<ForgotPasswordPage />} />
