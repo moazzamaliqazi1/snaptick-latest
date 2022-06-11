@@ -1,6 +1,6 @@
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../src/static/profile_images'))
+        cb(null, path.join(__dirname, '../src/static'))
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -17,4 +17,4 @@ global.profileImageStorage = multer({
             return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
         }
     }
-}).single('profile_image')
+}).single('image')

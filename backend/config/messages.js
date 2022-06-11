@@ -95,4 +95,5 @@ module.exports = {
     return `You have new appointment with ${patient_name} at ${time} on ${date}`
   },
   contactMessageSend: 'Your message is successfully sent',
+  cartItemAdded: 'Your item is successfully added into cart',
 };

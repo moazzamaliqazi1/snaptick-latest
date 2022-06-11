@@ -26,6 +26,7 @@ require("./services");
 require("./middleware");
 require("./modules");
 require("../config/strategies");
+require("../config/multer");
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

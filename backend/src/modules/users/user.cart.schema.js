@@ -5,8 +5,9 @@ const cartsSchema = new mongoose.Schema(
             required: true,
         },
         frame_id: {
-            type: Number,
+            type: String,
             required: true,
+            trim: true,
         },
         status: {
             type: String,
@@ -41,6 +42,10 @@ const cartsSchema = new mongoose.Schema(
         quantity: {
             type: Number,
             default: 1,
+        },
+        image: {
+            type: String,
+            required: true,
         },
         message: {
             type: String,

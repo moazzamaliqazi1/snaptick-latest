@@ -47,9 +47,9 @@ const user = {
             return errorReturn;
         }
     },
-    uploadDocumentKeys: async (keys, token) => {
+    addToCart: async (formData, token) => {
         try {
-            return await axios.post('/api/v1/patient/test-reports', { test_reports: keys }, {
+            return await axios.post('/api/v1/add-to-cart', formData, {
                 headers: {
                     Authorization: token
                 }
@@ -59,9 +59,9 @@ const user = {
             return errorReturn;
         }
     },
-    uploadCertificatesKeys: async (keys, token) => {
+    getCartItem: async (status, token) => {
         try {
-            return await axios.post('/api/v1/doctor/certificates', { certificates: keys }, {
+            return await axios.get(`/api/v1/carts?status=${status}`, {
                 headers: {
                     Authorization: token
                 }

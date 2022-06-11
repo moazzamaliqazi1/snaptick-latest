@@ -6,7 +6,9 @@ import frames3 from "../../images/frames3.jpg";
 import frames1 from "../../images/frames1.jpg";
 import frames5 from "../../images/frames5.jpg";
 import AvatarEditor from "react-avatar-editor";
-
+import Cookies from "universal-cookie";
+import user from "../../api/user";
+import { ToastContainer, toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,10 +22,13 @@ const style = {
 };
 const framing = ["frame1", "frame2", "frame3", "frame4", "frame5", "frame6"];
 const Frame = () => {
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const [selectedImage, setSelectedImage] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isCrop, setCrop] = useState(false);
   const [editorState, setEditorState] = useState(null);
   const setCropImage = async () => {
     try {
@@ -32,14 +37,48 @@ const Frame = () => {
         const result = await fetch(dataUrl);
         const blob = await result.blob();
         setSelectedImage(blob)
+        setCrop(true)
         handleClose();
       }
     } catch (error) {
       console.log(error);
     }
   };
+  const addCart = async(frame_id) => {
+    try {
+      const data = new FormData();
+      data.append("frame_id", frame_id);
+      if(isCrop){
+        data.append("image", selectedImage, `blobby.${selectedImage.type.split('/')[1]}`);
+      }
+      else {
+        data.append("image", selectedImage);
+      }
+      const response = await user.addToCart(data, token);
+      if(response.status === 200 && response.data.is_success){
+        toast.success(response.data.message)
+      }
+      else {
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  }
   return (
     <>
+     <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
       <Modal
         open={open}
         onClose={handleClose}
@@ -196,7 +235,7 @@ const Frame = () => {
                           ></i>
                         </button>
                         |
-                        <button className="m-2">
+                        <button className="m-2" onClick={()=>addCart(frame)}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
                             className="fa-solid fa-cart-arrow-down"
@@ -230,7 +269,7 @@ const Frame = () => {
                           ></i>
                         </button>
                         |
-                        <button className="m-2">
+                        <button className="m-2" onClick={()=>addCart(frame)}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
                             className="fa-solid fa-cart-arrow-down"
@@ -338,7 +377,7 @@ const Frame = () => {
                           ></i>
                         </button>
                         |
-                        <button className="m-2">
+                        <button className="m-2" onClick={()=>addCart(`${frame}${index + 1}${index + 1}`)}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
                             className="fa-solid fa-cart-arrow-down"

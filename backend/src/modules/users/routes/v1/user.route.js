@@ -68,6 +68,14 @@ router
         actions.users.auth.sendContactMessage
     )
     .post(
+        '/add-to-cart',
+        actions.users.cart.addToCart
+    )
+    .get(
+        '/carts',
+        actions.users.cart.getCartItem
+    )
+    .post(
         '/logout',
         actions.users.auth.logout
     )
