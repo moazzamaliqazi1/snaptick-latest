@@ -46,7 +46,7 @@ class CartService {
                         $set: {
                             status: "processing",
                             payment_status: paymentId ? true: false,
-                            transaction_id: paymentId ? paymentId: order._id.toString(),
+                            transaction_id: paymentId,
                             phone_number, address,
                             payment_type: payment_type,
                             card_number: payment_type == "online" ? card_number: null
@@ -54,6 +54,48 @@ class CartService {
                     })
                 }
             }
+        } catch (error) {
+            console.log(error);
+            throw createError(500);
+        }
+    }
+    async getOrders(user_id) {
+        try {
+            return await this.model.aggregate([
+                {
+                    $match: {
+                        $and: [
+                            user_id ? {
+                                user_id
+                            }: {}
+                        ]
+                    }
+                },
+                {
+                    $lookup: {
+                        from: "users",
+                        localField: "user_id",
+                        foreignField: "_id",
+                        as: "user_details"
+                    }
+                }
+            ])
+        } catch (error) {
+            console.log(error);
+            throw createError(500);
+        }
+    }
+    async updateOrders(status, _id) {
+        try {
+            return await this.model.updateMany({_id}, {$set: {status}})
+        } catch (error) {
+            console.log(error);
+            throw createError(500);
+        }
+    }
+    async getOrderByTransactionId(transaction_id) {
+        try {
+            return await this.model.find({transaction_id})
         } catch (error) {
             console.log(error);
             throw createError(500);

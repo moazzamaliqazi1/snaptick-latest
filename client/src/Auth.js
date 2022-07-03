@@ -21,6 +21,14 @@ const Auth = () => {
                 const { data } = response.data
                 dispatch(setAuthDisplay(false))
                 dispatch(addUser(data))
+                if (data.user_type === 'admin') {
+                    navigate(`/admin-page`)
+                }
+                else if (data.user_type === 'user'){
+                    if(location.pathname === '/admin-page'){
+                        navigate(`/`)
+                    }
+                }
                 /*if (data.user_type === 'user') {
                     dispatch(addUser(data))
                     if (!data.name || !data.phone_number) {

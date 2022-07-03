@@ -19,8 +19,7 @@ exports.auth = {
         expire_date: moment(Date.now()).add(5, "m").toDate(),
         email_verify: false,
         user_type: 'user'
-      }
-      );
+      });
       // create stripe id for new user
       const customer = await stripe.customers.create({
         description: `user stripe id created on ${new Date}`,

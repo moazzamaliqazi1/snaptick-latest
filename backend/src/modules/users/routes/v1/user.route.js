@@ -75,9 +75,21 @@ router
         '/carts',
         actions.users.cart.getCartItem
     )
+    .get(
+        '/orders',
+        actions.users.cart.getOrders
+    )
+    .get(
+        '/public/orders/transaction_id',
+        actions.users.cart.getOrdersByTransactionId
+    )
     .post(
         '/orders',
         actions.users.cart.placeOrder
+    )
+    .post(
+        '/orders/update',
+        actions.users.cart.updateOrder
     )
     .post(
         '/logout',

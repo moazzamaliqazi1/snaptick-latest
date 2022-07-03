@@ -192,9 +192,33 @@ const user = {
             return errorReturn;
         }
     },
+    getAllOrders: async (token) => {
+        try {
+            return await axios.get('/api/v1/orders', {
+                headers: {
+                    Authorization: token
+                }
+            })
+        } catch (error) {
+            console.log(error)
+            return errorReturn;
+        }
+    },
     logout: async (token) => {
         try {
             return await axios.post('/api/v1/logout', {}, {
+                headers: {
+                    Authorization: token
+                }
+            });
+        } catch (error) {
+            console.log(error)
+            return errorReturn;
+        }
+    },
+    updateOrderStatus: async(status, _id, token)=>{
+        try {
+            return await axios.post('/api/v1/orders/update', {status, _id}, {
                 headers: {
                     Authorization: token
                 }

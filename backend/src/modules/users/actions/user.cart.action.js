@@ -96,9 +96,55 @@ exports.cart = {
             }
             if(isValid){
                 // update card items status to pendingSet
-                await cartService.updateOrderStatusProcessing(data.orders, charge && charge.id ? charge.id: null, data.phone_number, data.address, data.payment_type, data.card_number)
-                utils.response.response(res, messages.success, true, 200, data);
+                let ids = new models.Unique({
+                    name: 'test'
+                })
+                ids = await ids.save()
+                await cartService.updateOrderStatusProcessing(data.orders, charge && charge.id ? charge.id: ids._id.toString(), data.phone_number, data.address, data.payment_type, data.card_number)
+                utils.response.response(res, messages.success, true, 200, {
+                    tracking_id: charge && charge.id ? charge.id: ids._id.toString()
+                });
             }
+        } catch (error) {
+            console.log(error)
+            next(error);
+        }
+    },
+    getOrders: async (req, res, next) => {
+        try {
+            let { user_id } = req.query
+            user_id = user_id ? mongoose.Types.ObjectId(user_id): null
+            const getOrders = await cartService.getOrders(user_id)
+            const dataArr = []
+            for(const order of getOrders){
+                dataArr.push({
+                    ...order,
+                    user_name: order.user_details[0].user_name,
+                    phone_number: order.user_details[0].phone_number,
+                    user_details: order.user_details[0]
+                })
+            }
+            utils.response.response(res, messages.success, true, 200, dataArr);
+        } catch (error) {
+            console.log(error)
+            next(error);
+        }
+    },
+    getOrdersByTransactionId: async (req, res, next) => {
+        try {
+            const { transaction_id } = req.query
+            const data = await cartService.getOrderByTransactionId(transaction_id)
+            utils.response.response(res, messages.success, true, 200, data);
+        } catch (error) {
+            console.log(error)
+            next(error);
+        }
+    },
+    updateOrder: async (req, res, next) => {
+        try {
+            const { status, _id } = req.body;
+            await cartService.updateOrders(status, _id)
+            utils.response.response(res, messages.success, true, 200, null);
         } catch (error) {
             console.log(error)
             next(error);
