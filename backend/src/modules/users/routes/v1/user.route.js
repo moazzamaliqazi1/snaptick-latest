@@ -76,6 +76,10 @@ router
         actions.users.cart.getCartItem
     )
     .post(
+        '/orders',
+        actions.users.cart.placeOrder
+    )
+    .post(
         '/logout',
         actions.users.auth.logout
     )

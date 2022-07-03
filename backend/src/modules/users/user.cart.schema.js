@@ -4,6 +4,10 @@ const cartsSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             required: true,
         },
+        transaction_id: {
+            type: String,
+            default: null
+        },
         frame_id: {
             type: String,
             required: true,

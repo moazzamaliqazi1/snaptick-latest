@@ -180,6 +180,18 @@ const user = {
             return errorReturn;
         }
     },
+    getOrderPlace: async (data, token) => {
+        try {
+            return await axios.post('/api/v1/orders', {data}, {
+                headers: {
+                    Authorization: token
+                }
+            })
+        } catch (error) {
+            console.log(error)
+            return errorReturn;
+        }
+    },
     logout: async (token) => {
         try {
             return await axios.post('/api/v1/logout', {}, {

@@ -7,6 +7,8 @@ import { Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
 import user from "../../api/user";
+import { isMobilePhone } from "validator"
+import { useNavigate } from "react-router-dom"
 const options = [
   { value: "0", label: "0" },
   { value: "1", label: "1" },
@@ -22,12 +24,14 @@ const options = [
     * 2. then hit api
 */
 const Cart = () => {
+  console.log(isMobilePhone(`+923024494416`))
   const profile = useSelector((state) => state.user);
   const cookies = new Cookies();
   const token = cookies.get("token");
+  const navigate = useNavigate();
   const [item, setItem] = useState({
-    address: "",
-    phone_number: "",
+    address: profile.address ? profile.address: "",
+    phone_number: profile.phone_number ? profile.phone_number: "",
     orders: [],
     payment_type: "cash",
     card_number: "",
@@ -40,7 +44,8 @@ const Cart = () => {
         for(const loop of cart){
             newArr.push({
                 ...loop,
-                cost: loop._id === _id ? Number(price)*Number(value.value): loop.cost
+                cost: loop._id === _id ? Number(price)*Number(value.value): loop.cost,
+                quantity: loop._id === _id ? value.value: loop.quantity
             })
         }
         setCart(newArr)
@@ -76,10 +81,69 @@ const Cart = () => {
       toast.error("something went wrong");
     }
   };
+  const addToCard = async()=>{
+    try {
+      if(item.phone_number){
+        const phone = item.phone_number.includes("+") ? item.phone_number.split("+")[1]: item.phone_number
+        if(isMobilePhone(`+${phone}`)){
+          if(item.address){
+            let isValid = true;
+            if(item.payment_type === 'online'){
+              if(!item.card_number){
+                isValid = false;
+                toast.error("Please Select A Card");
+              }
+            }
+            if(isValid){
+              setItem((prev)=>{
+                return {
+                  ...prev,
+                  orders: cart
+                }
+              });
+              console.log(cart)
+              const response = await user.getOrderPlace({...item, orders: cart, phone_number: `+${phone}`}, token)
+              if(response.status === 200 && response.data.is_success){
+                navigate('/')
+              }
+              else {
+                toast.error(response.data.message)
+              }
+            }
+          }
+          else {
+            toast.error("Enter Address");
+          }
+        }
+        else {
+          toast.error("Enter Valid Phone Number");
+        }
+      }
+      else {
+        toast.error("Enter Phone Number");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("something went wrong");
+    }
+  }
+  const updatePhone = ()=>{
+    setItem((prev)=>{
+      return {
+        ...prev,
+        address: profile.address ? profile.address: "",
+        phone_number: profile.phone_number ? profile.phone_number: "",
+      }
+    })
+  }
   useEffect(() => {
     fetchCartsItem();
     // eslint-disable-next-line
   }, []);
+  useEffect(() => {
+    updatePhone();
+    // eslint-disable-next-line
+  }, [profile]);
   return (
     <>
       <ToastContainer
@@ -257,6 +321,7 @@ const Cart = () => {
                   color: "white",
                   fontSize: "20px",
                 }}
+                onClick={addToCard}
               >
                 Place Order
               </Button>
