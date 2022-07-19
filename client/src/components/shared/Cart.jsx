@@ -16,6 +16,11 @@ const options = [
   { value: "3", label: "3" },
   { value: "4", label: "4" },
   { value: "5", label: "5" },
+  { value: "6", label: "6" },
+  { value: "7", label: "7" },
+  { value: "8", label: "8" },
+  { value: "9", label: "9" },
+  { value: "10", label: "10" },
 ];
 
 /*
@@ -24,14 +29,13 @@ const options = [
     * 2. then hit api
 */
 const Cart = () => {
-  console.log(isMobilePhone(`+923024494416`))
   const profile = useSelector((state) => state.user);
   const cookies = new Cookies();
   const token = cookies.get("token");
   const navigate = useNavigate();
   const [item, setItem] = useState({
-    address: profile.address ? profile.address: "",
-    phone_number: profile.phone_number ? profile.phone_number: "",
+    address: profile.address ? profile.address : "",
+    phone_number: profile.phone_number ? profile.phone_number : "",
     orders: [],
     payment_type: "cash",
     card_number: "",
@@ -41,12 +45,12 @@ const Cart = () => {
     try {
       if (isQuantity) {
         const newArr = []
-        for(const loop of cart){
-            newArr.push({
-                ...loop,
-                cost: loop._id === _id ? Number(price)*Number(value.value): loop.cost,
-                quantity: loop._id === _id ? value.value: loop.quantity
-            })
+        for (const loop of cart) {
+          newArr.push({
+            ...loop,
+            cost: loop._id === _id ? Number(price) * Number(value.value) : loop.cost,
+            quantity: loop._id === _id ? value.value : loop.quantity
+          })
         }
         setCart(newArr)
       }
@@ -67,10 +71,10 @@ const Cart = () => {
       if (result.status === 200 && result.data.is_success) {
         const newArr = []
         for (const loop of result.data.data) {
-            newArr.push({
-                ...loop,
-                cost: ["frame1", "frame2", "frame3", "frame4", "frame5", "frame6"].includes(loop.frame_id) ? loop.quantity * 200 : loop.quantity*300
-            })
+          newArr.push({
+            ...loop,
+            cost: ["frame1", "frame2", "frame3", "frame4", "frame5", "frame6"].includes(loop.frame_id) ? loop.quantity * 750 : loop.quantity * 1000
+          })
         }
         setCart(newArr);
       } else {
@@ -81,29 +85,29 @@ const Cart = () => {
       toast.error("something went wrong");
     }
   };
-  const addToCard = async()=>{
+  const addToCard = async () => {
     try {
-      if(item.phone_number){
-        const phone = item.phone_number.includes("+") ? item.phone_number.split("+")[1]: item.phone_number
-        if(isMobilePhone(`+${phone}`)){
-          if(item.address){
+      if (item.phone_number) {
+        const phone = item.phone_number.includes("+") ? item.phone_number.split("+")[1] : item.phone_number
+        if (isMobilePhone(`+${phone}`)) {
+          if (item.address) {
             let isValid = true;
-            if(item.payment_type === 'online'){
-              if(!item.card_number){
+            if (item.payment_type === 'online') {
+              if (!item.card_number) {
                 isValid = false;
                 toast.error("Please Select A Card");
               }
             }
-            if(isValid){
-              setItem((prev)=>{
+            if (isValid) {
+              setItem((prev) => {
                 return {
                   ...prev,
                   orders: cart
                 }
               });
               console.log(cart)
-              const response = await user.getOrderPlace({...item, orders: cart, phone_number: `+${phone}`}, token)
-              if(response.status === 200 && response.data.is_success){
+              const response = await user.getOrderPlace({ ...item, orders: cart, phone_number: `+${phone}` }, token)
+              if (response.status === 200 && response.data.is_success) {
                 navigate(`/tracking-page?tracking_id=${response.data.data.tracking_id}`)
               }
               else {
@@ -127,12 +131,12 @@ const Cart = () => {
       toast.error("something went wrong");
     }
   }
-  const updatePhone = ()=>{
-    setItem((prev)=>{
+  const updatePhone = () => {
+    setItem((prev) => {
       return {
         ...prev,
-        address: profile.address ? profile.address: "",
-        phone_number: profile.phone_number ? profile.phone_number: "",
+        address: profile.address ? profile.address : "",
+        phone_number: profile.phone_number ? profile.phone_number : "",
       }
     })
   }
@@ -157,33 +161,73 @@ const Cart = () => {
         draggable={false}
         pauseOnHover={false}
       />
-      <div className="container">
+
+      <div className="container-fluid">
         <div className="row mt-5 pt-5">
-          <div className="col-md-4 col-xs-12 m-0 p-0">
+
+          <div className="col-md-1">
+
+          </div>
+
+
+          <div className="col-md-3">
+            <h2>
+              <b>Checkout:</b>
+            </h2>
+          </div>
+
+          <div className="col-md-1">
+          </div>
+
+
+          <div className="col-md-1">
+            <h4>
+              <b>Frames:</b>
+            </h4>
+          </div>
+
+          <div className="col-md-2">
+          </div>
+
+
+          <div className="col-md-1">
+            <h4>
+              <b>Quantity:</b>
+            </h4>
+          </div>
+
+          <div className="col-sm-1">
+</div>
+
+          <div className="col-md-2">
+            <h4>
+              <b>Price:</b>
+            </h4>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4 col-xs-12 m-0 p-0 left-column" style={{ float: 'left' }}>
             <form
               className="contact100-form validate-form m-0 p-0"
               style={{ width: "100%" }}
             >
-              <h3>
-                <b>Checkout:</b>
-              </h3>
               <label className="label-input100" for="Phone">
                 Enter Phone Number *
               </label>
               <div
                 className="wrap-input100  validate-input required"
                 required
+                style={{ height: '60px' }}
                 data-validate="Type Phone"
               >
-                <PhoneInput
-                  country={"pk"}
+                <textarea
                   placeholder="Phone Number"
-                  enableSearch={true}
-                  countryCodeEditable={false}
                   name="phone_number"
-                  className="input100"
-                  onClick="border-none"
-                  inputClass="input100"
+                  className="input100 border-none"
                   onChange={(value) => {
                     fileForm("phone_number", value, false, null, null);
                   }}
@@ -212,7 +256,9 @@ const Cart = () => {
               </div>
 
               <div className="p-3">
+                <b>Select Payment Method:</b> <br></br>
                 <input
+                  className="pt-2"
                   type="radio"
                   value="cash"
                   name="payment_type"
@@ -221,7 +267,7 @@ const Cart = () => {
                     fileForm(event.target.name, event.target.value, false, null, null);
                   }}
                 />{" "}
-                Cash
+                Cash &nbsp; &nbsp;
                 <input
                   type="radio"
                   value="online"
@@ -235,15 +281,13 @@ const Cart = () => {
               </div>
               {profile.payment_cards && item.payment_type !== "cash" ? (
                 <>
-                  <div>
-                    <p>Select Card</p>
-                  </div>
                   <RadioGroup
                     style={{ width: "100%" }}
                     onChange={(value) => {
                       fileForm("card_number", value, null, null);
                     }}
                   >
+
                     {profile.payment_cards.map((payment_card) => {
                       return (
                         <RadioButton
@@ -262,73 +306,81 @@ const Cart = () => {
                 </>
               ) : null}
             </form>
+            <Button
+              style={{
+                backgroundColor: "#003690",
+                color: "white",
+                fontSize: "15px",
+                alignSelf: "right"
+              }}
+              onClick={addToCard}
+            >
+              Place Order
+            </Button>
+
+
           </div>
-          {cart.map((product) => {
-            return (
-              <>
-                <div className="col-md-3 col-xs-12" key={product._id}>
-                  <h3>Items</h3>
-                  <div className={product.frame_id}>
-                    <img
-                      className="fi1"
-                      src={`http://localhost:8000/static/${product.image}`}
-                      alt=""
+        </div>
+      </div>
+
+      {
+        cart.map((product) => {
+          return (
+            <>
+              <div className="col-md-7 col-xs-12 " style={{ float: 'right' }}>
+
+                <center>
+
+                  <div className="col-md-5 col-xs-12 pt-4" key={product._id}>
+                    <div className={product.frame_id}>
+                      <img
+                        className="fi1"
+                        src={`http://localhost:8000/static/${product.image}`}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div className="col-md-3 col-xs-12 pt-4">
+                    <Select
+                      options={options}
+                      className="m-2"
+                      defaultValue={options[1]}
+                      name="quantity"
+                      onChange={(value) => {
+                        fileForm("quantity", value, true, product._id, [
+                          "frame1",
+                          "frame2",
+                          "frame3",
+                          "frame4",
+                          "frame5",
+                          "frame6",
+                        ].includes(product.frame_id)
+                          ? "750"
+                          : "1000");
+                      }}
                     />
                   </div>
-                </div>
 
-                <div className="col-md-2 col-xs-12">
-                  <h3>Quantity</h3>
-                  <Select
-                    options={options}
-                    className="m-2"
-                    defaultValue={options[1]}
-                    name="quantity"
-                    onChange={(value) => {
-                      fileForm("quantity", value, true, product._id, [
-                        "frame1",
-                        "frame2",
-                        "frame3",
-                        "frame4",
-                        "frame5",
-                        "frame6",
-                      ].includes(product.frame_id)
-                        ? "200"
-                        : "300");
-                    }}
-                  />
-                </div>
+                  <div className="col-md-1 col-xs-12">
+                  </div>
 
-                <div className="col-md-2 col-xs-12">
-                  <h3>Price</h3>
-                  <p style={{ fontSize: "20px", paddingTop: "10px" }}>
-                    {product.cost}
-                  </p>
-                </div>
-              </>
-            );
-          })}
-        </div>
-      </div>
+                  <div className="col-md-2 col-xs-12 pt-4">
+                    <p className="fw-bold" style={{ fontSize: "20px", paddingTop: "10px" }}>
+                      Rs. &nbsp;{product.cost}
+                    </p>
+                  </div>
+                </center>
 
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 col-xs-12">
-            <center>
-              <Button
-                style={{
-                  backgroundColor: "#003690",
-                  color: "white",
-                  fontSize: "20px",
-                }}
-                onClick={addToCard}
-              >
-                Place Order
-              </Button>
-            </center>
-          </div>
-        </div>
-      </div>
+              </div>
+
+            </>
+          );
+        })
+      }
+
+
+
     </>
   );
 };

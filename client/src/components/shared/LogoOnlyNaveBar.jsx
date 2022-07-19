@@ -1,12 +1,13 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import logoImage from "../../images/logo.png"
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { addUser } from "../../redux/action";
 const LogoOnlyNaveBar = () => {
   const cookies = new Cookies();
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   return (
@@ -26,6 +27,7 @@ const LogoOnlyNaveBar = () => {
 
                     <Link className="link-dark text-decoration-none nav-link px-4 link-dark" to='/photo-frame' >Snap Frame</Link>
                     <Link className="link-dark text-decoration-none nav-link px-4 link-dark" to='/PhotoBook' >Snap Book</Link>
+                    <Link className="link-dark text-decoration-none nav-link px-4 link-dark" to='/hire-photographer' >Hire Photographer</Link>
                   </div>
                 </div>
                 <li><div className="nav-link px-4 link-dark" style={{ cursor: 'pointer', fontSize: 15 }} onClick={() => window.location.replace('/#tracking')}>Tracking</div></li>
@@ -38,9 +40,10 @@ const LogoOnlyNaveBar = () => {
                 <Link className="link-dark text-decoration-none p-3" style={{ color: "#003690" }} onClick={(event) => {
                   if (user && user.user_name) {
                     event.preventDefault();
+                    navigate('/user-profile')
                   }
                 }} to='/login' >{user && user.user_name ? user.user_name : 'LOGIN'}</Link>
-                {user && user.user_type ? <Link className="link-dark text-decoration-none p-3" style={{ color: "#003690" }} onClick={() => {
+                {user && user.user_type ? <Link className="fw-bold link-dark text-decoration-none p-3" style={{ color: "#003690" }} onClick={() => {
                   cookies.remove("token");
                   dispatch(addUser({}));
                 }} to='/login' >LOGOUT</Link> : null}

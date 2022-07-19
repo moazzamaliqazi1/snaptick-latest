@@ -42,6 +42,9 @@ const Footer = () => {
                   <p>
                     <Link to="/PhotoBook" className="text-white text-decoration-none">Snap Book</Link>
                   </p>
+                  <p>
+                    <Link to="/hire-photographer" className="text-white text-decoration-none">Hire Photographer</Link>
+                  </p>
                 </div>
                 {/* <!-- Grid column --> */}
 
@@ -51,13 +54,10 @@ const Footer = () => {
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>about us</h4><br />
 
                   <p>
-                    <a href="#!" className="text-decoration-none text-white">How we works?</a>
+                    <a href="#!" className="text-decoration-none text-white">Who we?</a>
                   </p>
                   <p>
-                    <a href="#!" className="text-white text-decoration-none" >Help</a>
-                  </p>
-                  <p>
-                    <a href="#!" className="text-white text-decoration-none">Shipping Rates</a>
+                    <a href="#!" className="text-white text-decoration-none" >Track your Order</a>
                   </p>
 
                 </div>

@@ -50,20 +50,28 @@ const AddPaymentCard = () => {
   };
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover={false}
-      />
-      <Container maxWidth="xl">
-        <Box>
-          <Paper elevation={3} sx={{ p: 1, mt: 3 }}>
+      <center>
+
+        <div className='col-md-12'>
+          <center>
+            <h3 className='text-uppercase fw-bold' style={{ color: '#003690' }}>Add New Payment Card:</h3>
+          </center>
+        </div>
+
+
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover={false}
+        />
+        <Container maxWidth="xl">
+          <Box>
             <Grid container spacing={2}>
               <Grid item xs={12} className="payment-card-align">
                 <Cards
@@ -110,17 +118,16 @@ const AddPaymentCard = () => {
               <Grid item xs={12}>
                 <Button
                   variant="contained"
-                  color="primary"
-                  sx={{ color: "white" }}
+                  sx={{ color: "white", backgroundColor: '#003690' }}
                   onClick={addPaymentCard}
                 >
                   Add Card
                 </Button>
               </Grid>
             </Grid>
-          </Paper>
-        </Box>
-      </Container>
+          </Box>
+        </Container>
+      </center>
     </>
   );
 };

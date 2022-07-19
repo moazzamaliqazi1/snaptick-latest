@@ -1,11 +1,11 @@
 import React from "react";
 import LogoOnlyNaveBar from "../components/shared/LogoOnlyNaveBar";
-import Frame from "../components/shared/Frame";
 import Footer from "../components/shared/Footer";
+import Photographer from "../components/shared/Photographer";
 import { Box } from "@mui/material";
 import Auth from "../Auth";
 import { useSelector } from "react-redux";
-const PhFrame = () => {
+const HirePhotographer = () => {
   const initialState = useSelector((state) => state.initialState);
   return (
     <>
@@ -15,8 +15,8 @@ const PhFrame = () => {
           <Box>
             <LogoOnlyNaveBar />
           </Box>
-          <Box style={{ marginTop: 75}}>
-            <Frame />
+          <Box style={{ marginTop: 100 }}>
+            <Photographer />
           </Box>
           <Box>
             <Footer />
@@ -26,4 +26,4 @@ const PhFrame = () => {
     </>
   );
 };
-export default PhFrame;
+export default HirePhotographer;

@@ -108,7 +108,7 @@ const Login = () => {
           className="w-100 min-w40"
         >
           <Box sx={{}}>
-            <Link className="text-decoration-none" to="/HomePage">
+            <Link className="text-decoration-none" to="/">
               <center>
                 <img src={logoImage} width="200" height="100" alt="SnapTick" />
               </center>

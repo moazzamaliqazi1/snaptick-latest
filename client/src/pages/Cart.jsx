@@ -19,7 +19,7 @@ const Cartt = () => {
                 <Box>
                     <Cart />
                 </Box>
-                <Box>
+                <Box style={{marginTop: 300}}>
                     <Footer />
                 </Box></>)}
 

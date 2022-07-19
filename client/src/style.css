@@ -13201,7 +13201,7 @@ ul li {
 
 .frame5 {
   border: 40px solid transparent;
-  border-image: url(./images/frame10.png) 15% round;
+  border-image: url(./images/frame0.png) 15% round;
   width: 200px;
   height: 250px;
 }
@@ -13213,62 +13213,26 @@ ul li {
   height: 250px;
 }
 
-.frame11 {
-  border: 40px solid transparent;
-  border-image: url(./images/frame1.png) 19% round;
-  width: 200px;
-  height: 250px;
-}
-
-.frame22 {
-  border: 40px solid transparent;
-  border-image: url(./images/frame5.png) 14% round;
-  width: 200px;
-  height: 250px;
-}
-
-.frame33 {
-  border: 40px solid transparent;
-  border-image: url(./images/frame7.png) 11% round;
-  width: 200px;
-  height: 250px;
-}
-
-.frame44 {
-  border: 40px solid transparent;
-  border-image: url(./images/frame9.png) 19% round;
-  width: 200px;
-  height: 250px;
-}
-
 .frame111 {
   border: 40px solid transparent;
-  border-image: url(./images/frame3.png) 19% round;
+  border-image: url(./images/frame3.png) 18% round;
   width: 200px;
   height: 250px;
 }
 
 .frame222 {
   border: 40px solid transparent;
-  border-image: url(./images/frame2.png) 14% round;
+  border-image: url(./images/frame2.png) 18% round;
   width: 200px;
   height: 250px;
 }
 
 .frame333 {
   border: 40px solid transparent;
-  border-image: url(./images/frame10.png) 17% round;
+  border-image: url(./images/frame10.png) 18% round;
   width: 200px;
   height: 250px;
 }
-
-.frame444 {
-  border: 40px solid transparent;
-  border-image: url(./images/frame8.png) 19% round;
-  width: 200px;
-  height: 250px;
-}
-
 .framePre {
   border: 40px solid transparent;
   border-image: url(./images/frame5.png) 15% round;
@@ -13278,7 +13242,7 @@ ul li {
 
 .framePreEx {
   border: 40px solid transparent;
-  border-image: url(./images/frame2.png) 15% round;
+  border-image: url(./images/frame2.png) 17% round;
   width: 160px;
   height: 192px;
 }

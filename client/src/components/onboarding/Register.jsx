@@ -148,7 +148,7 @@ const Register = () => {
         <Paper elevation={3} sx={{ borderRadius: 2, my: 2, p: 4 }}
           className="w-100 min-w40">
           <Box sx={{}}>
-            <Link className="text-decoration-none" to='/HomePage'>
+            <Link className="text-decoration-none" to='/'>
               <center><img src={logoImage} width="200" height="100" alt="SnapTick" /></center>
             </Link>
           </Box>

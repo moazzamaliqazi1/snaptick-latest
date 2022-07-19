@@ -1,11 +1,13 @@
 import React from "react";
 import LogoOnlyNaveBar from "../components/shared/LogoOnlyNaveBar";
-import Frame from "../components/shared/Frame";
 import Footer from "../components/shared/Footer";
+import Profile from "../components/shared/Profile";
+import AddPaymentCard from "../components/patient_doctor/AddPaymentCard";
+import PaymentsCardList from "../components/patient_doctor/PaymentsCardList";
 import { Box } from "@mui/material";
 import Auth from "../Auth";
 import { useSelector } from "react-redux";
-const PhFrame = () => {
+const UserProfile = () => {
   const initialState = useSelector((state) => state.initialState);
   return (
     <>
@@ -15,8 +17,16 @@ const PhFrame = () => {
           <Box>
             <LogoOnlyNaveBar />
           </Box>
-          <Box style={{ marginTop: 75}}>
-            <Frame />
+          <Box style={{ marginTop: 100 }}>
+            <Profile />
+          </Box>
+          <Box style={{ marginTop: 60 }}>
+            <hr style={{color:'black'}}></hr>
+            <br></br>
+            <AddPaymentCard />
+          </Box>
+          <Box style={{ marginTop: 50 }}>
+            <PaymentsCardList />
           </Box>
           <Box>
             <Footer />
@@ -26,4 +36,4 @@ const PhFrame = () => {
     </>
   );
 };
-export default PhFrame;
+export default UserProfile;

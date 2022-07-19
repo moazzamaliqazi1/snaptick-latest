@@ -7,18 +7,23 @@ const PaymentsCardList = () => {
   const profile = useSelector((state) => state.user);
   return (
     <>
-      <Container maxWidth="xl">
-        <Paper elevation={3} sx={{ p: 1 }}>
+      <div className='col-md-12'>
+        <center>
+          <h3 className='text-uppercase fw-bold' style={{ color: '#003690' }}>your payment cards:</h3>
+        </center>
+      </div>
+
+        <Container maxWidth="xl" className="pt-5">
           <Grid
             container
             direction="row"
-            justifyContent={profile.payment_cards ? 'flex-start': 'center'}
+            justifyContent={profile.payment_cards ? 'flex-start' : 'center'}
             alignItems="center"
           >
             {profile.payment_cards ? (
               profile.payment_cards.map((card) => {
                 return (
-                  <Box key={card._id} sx={{mr: 1, mb: 1}}>
+                  <Box key={card._id} sx={{ mr: 1, mb: 1 }}>
                     <Cards
                       cvc={card.cvc}
                       expiry={card.expiry.replace("/", "")}
@@ -39,8 +44,7 @@ const PaymentsCardList = () => {
               </Box>
             )}
           </Grid>
-        </Paper>
-      </Container>
+        </Container>
     </>
   );
 };

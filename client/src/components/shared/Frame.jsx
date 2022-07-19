@@ -91,11 +91,11 @@ const Frame = () => {
               <AvatarEditor
                 ref={(editor) => setEditorState(editor)}
                 image={URL.createObjectURL(selectedImage)}
-                width={250}
+                width={200}
                 height={250}
                 border={50}
                 color={[255, 255, 255, 0.6]} // RGBA
-                scale={1.2}
+                scale={1}
                 rotate={0}
               />
               <Button onClick={setCropImage}>Done</Button>
@@ -105,7 +105,7 @@ const Frame = () => {
       </Modal>
       { selectedImage ? null: <center>
         <div
-          className="container-fluid col-md-12 py-2"
+          className="container-fluid col-md-12 py-2 mt-5"
           style={{ borderStyle: "solid", border: "5px" }}
         >
           <h1 style={{ color: "#003690", fontFamily: "georgia" }}>
@@ -139,6 +139,7 @@ const Frame = () => {
               </label>
             </Button>
           </div>
+          <br></br>
         </div>
       </center>}
       {selectedImage ? <Box>
@@ -226,8 +227,7 @@ const Frame = () => {
                           />
                         </div>
                       )}
-                      <p style={{ fontSize: "20px" }}>
-                        BLACK - SD <br />
+                      <p className="pt-2" style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
@@ -260,8 +260,7 @@ const Frame = () => {
                           />
                         </div>
                       )}
-                      <p style={{ fontSize: "20px" }}>
-                        BLACK - SD <br />
+                      <p className="pt-2" style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
@@ -368,8 +367,7 @@ const Frame = () => {
                           />
                         </div>
                       )}
-                      <p style={{ fontSize: "20px" }}>
-                        BLACK - SD <br />
+                      <p className={"pt-2"} style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
                             style={{ fontSize: "25px", color: "#003690" }}
