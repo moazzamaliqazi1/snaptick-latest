@@ -51,10 +51,8 @@ import DoctorProfileSettingPage from "./pages/DoctorProfileSettingPage.jsx";
 import DoctorCertificatePage from "./pages/DoctorCertificatePage.jsx";
 import DoctorSetTimingPage from "./pages/DoctorSetTimingPage.jsx";
 import PatientTestReportsPage from "./pages/PatientTestReportsPage.jsx";
-import BookAppointmentPage from "./pages/BookAppointmentPage.jsx";
 import DashboardDoctorPatientFilePage from "./pages/DashboardDoctorPatientFilePage.jsx";
 import DashboardDoctorPatientRecordPage from "./pages/DashboardDoctorPatientRecordPage.jsx";
-import SearchDoctorPage from "./pages/SearchDoctorPage.jsx";
 import PatientMedicalTreatmentPage from "./pages/PatientMedicalTreatmentPage.jsx";
 import PatientAppointmentPage from "./pages/PatientAppointmentPage.jsx";
 import DoctorAppointmentPage from "./pages/DoctorAppointmentPage.jsx";
@@ -64,7 +62,6 @@ import FileViewerShared from './components/shared/FileViewerShared';
 import { Backdrop } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from "react-redux";
-import Meeting from "./components/patient_doctor/Meeting";
 
 
 const App = () => {
@@ -99,7 +96,6 @@ const App = () => {
              */
           }
           <Route exact path="/order/photo" element={<FileViewerShared />} />
-          <Route exact path="/meeting/:meeting_id/:token/:name" element={<Meeting />} />
 
           {
             /**
@@ -107,7 +103,6 @@ const App = () => {
             */
           }
           <Route exact path="/dashboard/patient" element={<DashboardPatientPage />} />
-          <Route exact path="/search/doctors" element={<SearchDoctorPage />} />
           <Route exact path="/dashboard/patient/records" element={<PatientRecordPage />} />
           <Route exact path="/dashboard/patient/test-reports" element={<PatientTestReportsPage />} />
           <Route exact path="/dashboard/patient/doctors" element={<DoctorsPage />} />
@@ -116,7 +111,6 @@ const App = () => {
           <Route exact path="/dashboard/patient/appointments" element={<PatientAppointmentPage />} />
           <Route exact path="/dashboard/patient/appointments/:_id/details" element={<PatientAppointmentDetailPage />} />
           <Route exact path="/dashboard/patient/profile/setting" element={<PatientProfileSettingPage />} />
-          <Route exact path="/dashboard/patient/:doctor_id/book-appointment" element={<BookAppointmentPage />} />
           {
             /**
              * ! Doctor Routes
