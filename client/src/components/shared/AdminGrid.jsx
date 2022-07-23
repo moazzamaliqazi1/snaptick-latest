@@ -86,10 +86,10 @@ const AdminGrid = () => {
         return (
           <img
             onClick={() =>
-              downloadImage(`http://localhost:8000/static/${value}`, value)
+              downloadImage(`http://localhost:8000/static/${JSON.parse(value)[0]}`, JSON.parse(value)[0])
             }
             style={{ maxWidth: "38px", width: "100%" }}
-            src={`http://localhost:8000/static/${value}`}
+            src={`http://localhost:8000/static/${JSON.parse(value)[0]}`}
             alt="frame"
           />
         );
