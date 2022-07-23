@@ -96,5 +96,6 @@ module.exports = {
   },
   contactMessageSend: 'Your message is successfully sent',
   cartItemAdded: 'Your item is successfully added into cart',
-  paymentError: 'Some error during charge a payment'
+  paymentError: 'Some error during charge a payment',
+  updatedProfile: 'Profile has been successfully updated'
 };

@@ -46,8 +46,6 @@ import PatientRecordPage from "./pages/PatientRecordPage.jsx";
 import DoctorsPage from "./pages/DoctorsPage.jsx";
 import PatientProfilePage from "./pages/PatientProfilePage.jsx";
 import DoctorProfilePage from "./pages/DoctorProfilePage.jsx";
-import PatientProfileSettingPage from "./pages/PatientProfileSettingPage.jsx";
-import DoctorProfileSettingPage from "./pages/DoctorProfileSettingPage.jsx";
 import DoctorCertificatePage from "./pages/DoctorCertificatePage.jsx";
 import DoctorSetTimingPage from "./pages/DoctorSetTimingPage.jsx";
 import PatientTestReportsPage from "./pages/PatientTestReportsPage.jsx";
@@ -110,7 +108,6 @@ const App = () => {
           <Route exact path="/dashboard/patient/profile/medical-treatment" element={<PatientMedicalTreatmentPage />} />
           <Route exact path="/dashboard/patient/appointments" element={<PatientAppointmentPage />} />
           <Route exact path="/dashboard/patient/appointments/:_id/details" element={<PatientAppointmentDetailPage />} />
-          <Route exact path="/dashboard/patient/profile/setting" element={<PatientProfileSettingPage />} />
           {
             /**
              * ! Doctor Routes
@@ -118,7 +115,6 @@ const App = () => {
           }
           <Route exact path="/dashboard/doctor" element={<DashboardDoctorPage />} />
           <Route exact path="/dashboard/doctor/profile" element={<DoctorProfilePage />} />
-          <Route exact path="/dashboard/doctor/profile/setting" element={<DoctorProfileSettingPage />} />
           <Route exact path="/dashboard/doctor/certificates" element={<DoctorCertificatePage />} />
           <Route exact path="/dashboard/doctor/appointment" element={<DoctorAppointmentPage />} />
           <Route exact path="/dashboard/doctor/set/timings" element={<DoctorSetTimingPage />} />

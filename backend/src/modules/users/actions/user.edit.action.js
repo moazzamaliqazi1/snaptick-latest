@@ -15,34 +15,9 @@ exports.edit = {
     },
     changeProfile: async (req, res, next) => {
         try {
-            const { basic_data, type, social_links, setting, fee } = req.body;
-            const { user } = req;
-            if (type == 'basic-info') {
-                // check number is exist or not
-                const isPhoneNumberExist = await usersService.isUserExistByPhoneNumber(user._id, basic_data.phone_number)
-                await usersService.updateBasicProfile(user._id, user, basic_data.name, basic_data.bio, isPhoneNumberExist ? user.phone_number : basic_data.phone_number, isPhoneNumberExist ? user.phone_info : basic_data.phone_info)
-                const updateProfile = await usersService.getUserByIdWithFullDetails(user._id)
-                utils.response.response(res, isPhoneNumberExist ? messages.alreadyExistPhoneNumber : messages.profileBasicPartSaved, isPhoneNumberExist ? false : true, 200, updateProfile);
-            }
-            else if (type == 'social-links') {
-                await usersService.updateSocialLinks(user._id, user, social_links)
-                const updateProfile = await usersService.getUserByIdWithFullDetails(user._id)
-                utils.response.response(res, messages.socialLinkUpdated, true, 200, updateProfile);
-            }
-            else if (type == 'general-setting') {
-                await usersService.updateProfileSetting(user._id, user, setting)
-                const updateProfile = await usersService.getUserByIdWithFullDetails(user._id)
-                utils.response.response(res, messages.settingSaved, true, 200, updateProfile);
-            }
-            else if (type == 'finance-setting') {
-                await usersService.updateProfileFinance(user._id, fee)
-                const updateProfile = await usersService.getUserByIdWithFullDetails(user._id)
-                utils.response.response(res, messages.settingSaved, true, 200, updateProfile);
-            }
-            else {
-                const updateProfile = await usersService.getUserByIdWithFullDetails(user._id)
-                utils.response.response(res, messages.wrongType, false, 200, updateProfile);
-            }
+            const { phone_number, address } = req.body;
+            await usersService.updateBasicProfile(req.user._id, phone_number, address)
+            utils.response.response(res, messages.updatedProfile, true, 200, null);
         } catch (error) {
             console.log(error)
             next(error);

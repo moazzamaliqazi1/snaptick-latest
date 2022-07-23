@@ -105,7 +105,6 @@ const Cart = () => {
                   orders: cart
                 }
               });
-              console.log(cart)
               const response = await user.getOrderPlace({ ...item, orders: cart, phone_number: `+${phone}` }, token)
               if (response.status === 200 && response.data.is_success) {
                 navigate(`/tracking-page?tracking_id=${response.data.data.tracking_id}`)

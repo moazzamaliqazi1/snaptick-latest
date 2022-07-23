@@ -20,11 +20,11 @@ const user = {
             return errorReturn;
         }
     },
-    updateProfileImage: async (url, urlObject, token) => {
+    updateProfile: async (token, phone_number, address) => {
         try {
-            return await axios.post('/api/v1/profile/image', {
-                image_url: url,
-                file_object: urlObject
+            return await axios.patch('/api/v1/profile', {
+                phone_number,
+                address
             }, {
                 headers: {
                     Authorization: token

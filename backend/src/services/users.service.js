@@ -97,14 +97,11 @@ class UsersService {
             throw createError(500);
         }
     }
-    async updateBasicProfile(_id, old_details, name, bio, phone_number, phone_info) {
+    async updateBasicProfile(_id, phone_number, address) {
         try {
             return await this.model.findOneAndUpdate({ _id }, {
                 $set: {
-                    name: name ? name : old_details.name,
-                    bio: bio ? bio : old_details.bio,
-                    phone_number: phone_number ? phone_number : old_details.phone_number,
-                    phone_info: phone_info ? phone_info : old_details.phone_info,
+                    phone_number, address
                 }
             }, { new: true })
         } catch (error) {
