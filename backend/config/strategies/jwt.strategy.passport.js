@@ -35,7 +35,26 @@ module.exports = function () {
             model = roleModel[jwt_payload.role];
           }
           else{
-            let user = await models.Users.findById(jwt_payload._id);
+            let user = await models.Users.aggregate([
+              {
+                $match: {
+                  _id: mongoose.Types.ObjectId(jwt_payload._id)
+                }
+              },
+              {
+                $lookup: {
+                  from: "carts",
+                  localField: "_id",
+                  foreignField: "user_id",
+                  as: "carts_data"
+                }
+              }
+            ])
+            user = user[0] ? user[0]: null
+            user = {
+              ...user,
+              _doc: user
+            }
             user ? done(null, user) : done(customError, false);
           }
         }

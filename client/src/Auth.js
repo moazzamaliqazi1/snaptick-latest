@@ -28,6 +28,9 @@ const Auth = () => {
                     if(location.pathname === '/admin-page'){
                         navigate(`/`)
                     }
+                    else if(!data.phone_number || !data.address){
+                        navigate(`/user-profile`)
+                    }
                 }
                 /*if (data.user_type === 'user') {
                     dispatch(addUser(data))
