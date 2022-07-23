@@ -83,16 +83,18 @@ const AdminGrid = () => {
       header: "Image",
       defaultFlex: 1,
       render: ({ value }) => {
-        return (
-          <img
-            onClick={() =>
-              downloadImage(`http://localhost:8000/static/${JSON.parse(value)[0]}`, JSON.parse(value)[0])
-            }
-            style={{ maxWidth: "38px", width: "100%" }}
-            src={`http://localhost:8000/static/${JSON.parse(value)[0]}`}
-            alt="frame"
-          />
-        );
+        JSON.parse(value).map((item)=>{
+          return (
+            <img
+              onClick={() =>
+                downloadImage(`http://localhost:8000/static/${item}`, item)
+              }
+              style={{ maxWidth: "38px", width: "100%" }}
+              src={`http://localhost:8000/static/${item}`}
+              alt="frame"
+            />
+          );
+        })
       },
     },
     {
