@@ -7,8 +7,10 @@ import { Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
 import user from "../../api/user";
-import { isMobilePhone } from "validator"
-import { useNavigate } from "react-router-dom"
+import { isMobilePhone } from "validator";
+import { useNavigate } from "react-router-dom";
+import BookFrameCart from "./BookFrameCart";
+
 const options = [
   { value: "0", label: "0" },
   { value: "1", label: "1" },
@@ -25,14 +27,15 @@ const options = [
 
 /*
  * TODO: on place order,
-    * 1. add cart item in setItem
-    * 2. then hit api
-*/
+ * 1. add cart item in setItem
+ * 2. then hit api
+ */
 const Cart = () => {
   const profile = useSelector((state) => state.user);
   const cookies = new Cookies();
   const token = cookies.get("token");
   const navigate = useNavigate();
+  const [totalPrice, setTotalPrice] = useState(0);
   const [item, setItem] = useState({
     address: profile.address ? profile.address : "",
     phone_number: profile.phone_number ? profile.phone_number : "",
@@ -44,15 +47,23 @@ const Cart = () => {
   const fileForm = async (name, value, isQuantity, _id, price) => {
     try {
       if (isQuantity) {
-        const newArr = []
+        const newArr = [];
         for (const loop of cart) {
           newArr.push({
             ...loop,
-            cost: loop._id === _id ? Number(price) * Number(value.value) : loop.cost,
-            quantity: loop._id === _id ? value.value : loop.quantity
-          })
+            cost:
+              loop._id === _id
+                ? Number(price) * Number(value.value)
+                : loop.cost,
+            quantity: loop._id === _id ? value.value : loop.quantity,
+          });
         }
-        setCart(newArr)
+        setTotalPrice(
+          newArr.reduce((prev, current) => {
+            return prev + current.cost;
+          }, 0)
+        );
+        setCart(newArr);
       }
       setItem((prev) => {
         return {
@@ -67,15 +78,37 @@ const Cart = () => {
   };
   const fetchCartsItem = async () => {
     try {
-      const result = await user.getCartItem("pending", token);
+      const result = await user.getCartItem(
+        "pending",
+        ["frame", "book"],
+        token
+      );
       if (result.status === 200 && result.data.is_success) {
-        const newArr = []
+        const newArr = [];
         for (const loop of result.data.data) {
+          let tempPrice = 600;
+          if (loop.order_type === "frame") {
+            tempPrice = [
+              "frame1",
+              "frame2",
+              "frame3",
+              "frame4",
+              "frame5",
+              "frame6",
+            ].includes(loop.frame_id)
+              ? loop.quantity * 750
+              : loop.quantity * 1000;
+          }
           newArr.push({
             ...loop,
-            cost: ["frame1", "frame2", "frame3", "frame4", "frame5", "frame6"].includes(loop.frame_id) ? loop.quantity * 750 : loop.quantity * 1000
-          })
+            cost: tempPrice,
+          });
         }
+        setTotalPrice(
+          newArr.reduce((prev, current) => {
+            return prev + current.cost;
+          }, 0)
+        );
         setCart(newArr);
       } else {
         toast.error(result.data.message);
@@ -88,11 +121,13 @@ const Cart = () => {
   const addToCard = async () => {
     try {
       if (item.phone_number) {
-        const phone = item.phone_number.includes("+") ? item.phone_number.split("+")[1] : item.phone_number
+        const phone = item.phone_number.includes("+")
+          ? item.phone_number.split("+")[1]
+          : item.phone_number;
         if (isMobilePhone(`+${phone}`)) {
           if (item.address) {
             let isValid = true;
-            if (item.payment_type === 'online') {
+            if (item.payment_type === "online") {
               if (!item.card_number) {
                 isValid = false;
                 toast.error("Please Select A Card");
@@ -102,43 +137,44 @@ const Cart = () => {
               setItem((prev) => {
                 return {
                   ...prev,
-                  orders: cart
-                }
+                  orders: cart,
+                };
               });
-              const response = await user.getOrderPlace({ ...item, orders: cart, phone_number: `+${phone}` }, token)
+              const response = await user.getOrderPlace(
+                { ...item, orders: cart, phone_number: `+${phone}` },
+                token
+              );
               if (response.status === 200 && response.data.is_success) {
-                navigate(`/tracking-page?tracking_id=${response.data.data.tracking_id}`)
-              }
-              else {
-                toast.error(response.data.message)
+                navigate(
+                  `/tracking-page?tracking_id=${response.data.data.tracking_id}`
+                );
+              } else {
+                toast.error(response.data.message);
               }
             }
-          }
-          else {
+          } else {
             toast.error("Enter Address");
           }
-        }
-        else {
+        } else {
           toast.error("Enter Valid Phone Number");
         }
-      }
-      else {
+      } else {
         toast.error("Enter Phone Number");
       }
     } catch (error) {
       console.log(error);
       toast.error("something went wrong");
     }
-  }
+  };
   const updatePhone = () => {
     setItem((prev) => {
       return {
         ...prev,
         address: profile.address ? profile.address : "",
         phone_number: profile.phone_number ? profile.phone_number : "",
-      }
-    })
-  }
+      };
+    });
+  };
   useEffect(() => {
     fetchCartsItem();
     // eslint-disable-next-line
@@ -160,24 +196,18 @@ const Cart = () => {
         draggable={false}
         pauseOnHover={false}
       />
-
       <div className="container-fluid">
         <div className="row mt-5 pt-5">
-
-          <div className="col-md-1">
-
-          </div>
-
+          <div className="col-md-1"></div>
 
           <div className="col-md-3">
             <h2>
+              {totalPrice}
               <b>Checkout:</b>
             </h2>
           </div>
 
-          <div className="col-md-1">
-          </div>
-
+          <div className="col-md-1"></div>
 
           <div className="col-md-1">
             <h4>
@@ -185,9 +215,7 @@ const Cart = () => {
             </h4>
           </div>
 
-          <div className="col-md-2">
-          </div>
-
+          <div className="col-md-2"></div>
 
           <div className="col-md-1">
             <h4>
@@ -195,21 +223,22 @@ const Cart = () => {
             </h4>
           </div>
 
-          <div className="col-sm-1">
-</div>
+          <div className="col-sm-1"></div>
 
           <div className="col-md-2">
             <h4>
               <b>Price:</b>
             </h4>
           </div>
-
         </div>
       </div>
 
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-xs-12 m-0 p-0 left-column" style={{ float: 'left' }}>
+          <div
+            className="col-md-4 col-xs-12 m-0 p-0 left-column"
+            style={{ float: "left" }}
+          >
             <form
               className="contact100-form validate-form m-0 p-0"
               style={{ width: "100%" }}
@@ -220,7 +249,7 @@ const Cart = () => {
               <div
                 className="wrap-input100  validate-input required"
                 required
-                style={{ height: '60px' }}
+                style={{ height: "60px" }}
                 data-validate="Type Phone"
               >
                 <textarea
@@ -248,7 +277,9 @@ const Cart = () => {
                   name="address"
                   placeholder="Your Address"
                   value={item.address}
-                  onChange={(e) => fileForm("address", e.target.value, false, null, null)}
+                  onChange={(e) =>
+                    fileForm("address", e.target.value, false, null, null)
+                  }
                   required
                 ></textarea>
                 <span className="focus-input100"></span>
@@ -263,7 +294,13 @@ const Cart = () => {
                   name="payment_type"
                   checked={item.payment_type === "cash" ? true : false}
                   onChange={(event) => {
-                    fileForm(event.target.name, event.target.value, false, null, null);
+                    fileForm(
+                      event.target.name,
+                      event.target.value,
+                      false,
+                      null,
+                      null
+                    );
                   }}
                 />{" "}
                 Cash &nbsp; &nbsp;
@@ -273,7 +310,13 @@ const Cart = () => {
                   name="payment_type"
                   checked={item.payment_type === "online" ? true : false}
                   onChange={(event) => {
-                    fileForm(event.target.name, event.target.value, false, null, null);
+                    fileForm(
+                      event.target.name,
+                      event.target.value,
+                      false,
+                      null,
+                      null
+                    );
                   }}
                 />{" "}
                 Card
@@ -286,7 +329,6 @@ const Cart = () => {
                       fileForm("card_number", value, null, null);
                     }}
                   >
-
                     {profile.payment_cards.map((payment_card) => {
                       return (
                         <RadioButton
@@ -310,31 +352,29 @@ const Cart = () => {
                 backgroundColor: "#003690",
                 color: "white",
                 fontSize: "15px",
-                alignSelf: "right"
+                alignSelf: "right",
               }}
               onClick={addToCard}
             >
               Place Order
             </Button>
-
-
           </div>
         </div>
       </div>
-
-      {
-        cart.map((product) => {
+      {cart
+        .filter((item2) => item2.order_type === "frame")
+        .map((product) => {
           return (
             <>
-              <div className="col-md-7 col-xs-12 " style={{ float: 'right' }}>
-
+              <div className="col-md-7 col-xs-12 " style={{ float: "right" }}>
                 <center>
-
                   <div className="col-md-5 col-xs-12 pt-4" key={product._id}>
                     <div className={product.frame_id}>
                       <img
                         className="fi1"
-                        src={`http://localhost:8000/static/${product.image}`}
+                        src={`http://localhost:8000/static/${
+                          JSON.parse(product.image)[0]
+                        }`}
                         alt=""
                       />
                     </div>
@@ -347,39 +387,47 @@ const Cart = () => {
                       defaultValue={options[1]}
                       name="quantity"
                       onChange={(value) => {
-                        fileForm("quantity", value, true, product._id, [
-                          "frame1",
-                          "frame2",
-                          "frame3",
-                          "frame4",
-                          "frame5",
-                          "frame6",
-                        ].includes(product.frame_id)
-                          ? "750"
-                          : "1000");
+                        fileForm(
+                          "quantity",
+                          value,
+                          true,
+                          product._id,
+                          [
+                            "frame1",
+                            "frame2",
+                            "frame3",
+                            "frame4",
+                            "frame5",
+                            "frame6",
+                          ].includes(product.frame_id)
+                            ? "750"
+                            : "1000"
+                        );
                       }}
                     />
                   </div>
 
-                  <div className="col-md-1 col-xs-12">
-                  </div>
+                  <div className="col-md-1 col-xs-12"></div>
 
                   <div className="col-md-2 col-xs-12 pt-4">
-                    <p className="fw-bold" style={{ fontSize: "20px", paddingTop: "10px" }}>
+                    <p
+                      className="fw-bold"
+                      style={{ fontSize: "20px", paddingTop: "10px" }}
+                    >
                       Rs. &nbsp;{product.cost}
                     </p>
                   </div>
                 </center>
-
               </div>
-
             </>
           );
-        })
-      }
-
-
-
+        })}
+      <BookFrameCart
+        setItem={setItem}
+        cart={cart}
+        setCart={setCart}
+        setTotalPrice={setTotalPrice}
+      />
     </>
   );
 };

@@ -2,12 +2,13 @@ class CartService {
     constructor(model) {
         this.model = model;
     }
-    async addItem(user_id, frame_id, image) {
+    async addItem(user_id, frame_id, image, order_type) {
         try {
             const newItem = new this.model({
                 user_id,
                 frame_id,
-                image
+                image,
+                order_type
             })
             return await newItem.save()
         } catch (error) {
@@ -15,7 +16,7 @@ class CartService {
             throw createError(500);
         }
     }
-    async getCartItem(user_id, status) {
+    async getCartItem(user_id, status, order_type) {
         try {
             return await this.model.find({ $and: [
                 {
@@ -23,6 +24,9 @@ class CartService {
                 },
                 {
                     status
+                },
+                {
+                    order_type: order_type.split(",")
                 }
             ] });
         } catch (error) {

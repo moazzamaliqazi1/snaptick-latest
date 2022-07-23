@@ -59,9 +59,9 @@ const user = {
             return errorReturn;
         }
     },
-    getCartItem: async (status, token) => {
+    getCartItem: async (status, order_type, token) => {
         try {
-            return await axios.get(`/api/v1/carts?status=${status}`, {
+            return await axios.get(`/api/v1/carts?status=${status}&order_type=${order_type}`, {
                 headers: {
                     Authorization: token
                 }

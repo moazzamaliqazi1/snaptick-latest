@@ -60,6 +60,11 @@ const AdminGrid = () => {
       header: "Frame Id",
       defaultFlex: 1,
       type: "text",
+      render: ({ value }) => {
+        return (
+          <span>{value ? value: "Book"}</span>
+        );
+      },
     },
     {
       name: "phone_number",

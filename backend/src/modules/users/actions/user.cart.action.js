@@ -9,7 +9,13 @@ exports.cart = {
                         next(err);
                     }
                     else {
-                        const cart = await cartService.addItem(req.user._id, req.body.frame_id, req.file.filename);
+                        const newArray = req.files.reduce((previousValue, currentValue)=>{
+                            return [
+                                ...previousValue,
+                                currentValue.filename
+                            ]
+                        }, [])
+                        const cart = await cartService.addItem(req.user._id, req.body.frame_id ? req.body.frame_id: null, JSON.stringify(newArray), req.body.frame_id ? "frame": "book");
                         utils.response.response(res, messages.cartItemAdded, true, 200, cart);
                     }
                 } catch (error) {
@@ -24,8 +30,8 @@ exports.cart = {
     },
     getCartItem: async (req, res, next) => {
         try {
-            const { status } = req.query;
-            const cart = await cartService.getCartItem(req.user._id, status);
+            const { status, order_type } = req.query;
+            const cart = await cartService.getCartItem(req.user._id, status, order_type);
             utils.response.response(res, messages.success, true, 200, cart);
         } catch (error) {
             console.log(error)

@@ -7,9 +7,7 @@ import Auth from "../Auth";
 import { useSelector } from "react-redux";
 const Cartt = () => {
     const initialState = useSelector((state) => state.initialState);
-
     return (
-
         <>
             <Auth />
             {initialState.authDisplay ? null : (<>

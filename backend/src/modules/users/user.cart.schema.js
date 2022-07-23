@@ -10,7 +10,6 @@ const cartsSchema = new mongoose.Schema(
         },
         frame_id: {
             type: String,
-            required: true,
             trim: true,
         },
         status: {
@@ -54,6 +53,11 @@ const cartsSchema = new mongoose.Schema(
         message: {
             type: String,
             default: null
+        },
+        order_type: {
+            type: String,
+            default: "frame",
+            enum: ["frame", "book"]
         }
     },
     {
