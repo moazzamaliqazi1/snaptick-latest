@@ -83,7 +83,8 @@ const AdminGrid = () => {
       header: "Image",
       defaultFlex: 1,
       render: ({ value }) => {
-        JSON.parse(value).map((item)=>{
+        return <>
+        {JSON.parse(value).map((item)=>{
           return (
             <img
               onClick={() =>
@@ -94,7 +95,8 @@ const AdminGrid = () => {
               alt="frame"
             />
           );
-        })
+        })}
+        </>
       },
     },
     {
