@@ -5,6 +5,7 @@ import Cookies from "universal-cookie";
 import moment from "moment";
 import { saveAs } from "file-saver";
 import { Button, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom"
 const gridStyle = { minHeight: 550 };
 
 const downloadImage = (url, file_name) => {
@@ -15,6 +16,7 @@ const AdminGrid = () => {
   const [dataSource, setDataSource] = useState([]);
   const cookies = new Cookies();
   const token = cookies.get("token");
+  const navigate = useNavigate()
   const updatedState = async(status, _id, transaction_id)=>{
     try {
         const ids = dataSource.reduce((prev, current)=>{
@@ -165,12 +167,23 @@ const AdminGrid = () => {
       console.log(error);
     }
   };
+  const logoutAdmin = async()=>{
+    try {
+      const response = await user.logout(token);
+      if(response.status === 200 && response.data.is_success){
+        navigate('/login')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     fetchOrders();
     // eslint-disable-next-line
   }, []);
   return (
     <>
+      <Button onClick={logoutAdmin}>Logout</Button>
       <h4>Admin Grid</h4>
       <ReactDataGrid
         idProperty="id"

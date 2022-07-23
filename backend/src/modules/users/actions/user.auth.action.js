@@ -165,7 +165,7 @@ exports.auth = {
     try {
       const { user } = req;
       await usersService.updateJWT(user._id, null);
-      await usersService.updateFirebaseToken(user._id, 'remove', []);
+      // await usersService.updateFirebaseToken(user._id, 'remove', []);
       utils.response.response(res, messages.logoutSuccess, true, 200, null);
     } catch (error) {
       console.log(error)
