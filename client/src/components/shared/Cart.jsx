@@ -146,7 +146,7 @@ const Cart = () => {
               );
               if (response.status === 200 && response.data.is_success) {
                 navigate(
-                  `/tracking-page?tracking_id=${response.data.data.tracking_id}`
+                  `/tracking?tracking_id=${response.data.data.tracking_id}`
                 );
               } else {
                 toast.error(response.data.message);

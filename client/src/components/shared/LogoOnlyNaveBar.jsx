@@ -31,7 +31,7 @@ const LogoOnlyNaveBar = () => {
                 <div
                   className="nav-link px-4 link-dark"
                   style={{ cursor: "pointer", fontSize: 15 }}
-                  onClick={() => window.location.replace("/#home")}
+                  onClick={() => window.location.replace("/")}
                 >
                   <img
                     src={logoImage}
@@ -62,7 +62,7 @@ const LogoOnlyNaveBar = () => {
                     </Link>
                     <Link
                       className="link-dark text-decoration-none nav-link px-4 link-dark"
-                      to="/PhotoBook"
+                      to="/photo-book"
                     >
                       Snap Book
                     </Link>
@@ -78,7 +78,7 @@ const LogoOnlyNaveBar = () => {
                   <div
                     className="nav-link px-4 link-dark"
                     style={{ cursor: "pointer", fontSize: 15 }}
-                    onClick={() => window.location.replace("/#tracking")}
+                    onClick={() => window.location.replace("/tracking")}
                   >
                     Tracking
                   </div>

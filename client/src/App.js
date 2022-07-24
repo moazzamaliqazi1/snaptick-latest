@@ -81,8 +81,8 @@ const App = () => {
           <Route exact path="/user-profile" element={<UserProfile />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/admin-page" element={<AdminPage />} />
-          <Route exact path="/tracking-page" element={<TrackingPage />} />
-          <Route exact path="/PhotoBook" element={<PhotoBook />} />
+          <Route exact path="/tracking" element={<TrackingPage />} />
+          <Route exact path="/photo-book" element={<PhotoBook />} />
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route exact path="/change-password/:user_id/:code" element={<ChangePasswordPage />} />

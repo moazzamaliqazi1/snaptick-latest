@@ -46,9 +46,8 @@
     "passport-twitter": "^1.0.4",
     "percent-change": "^1.0.1",
     "randomstring": "^1.2.1",
+    "react-multiple-image-input": "^1.0.0",
     "stripe": "^8.186.1",
     "validator": "^13.6.0"
   }
 }
-
-

@@ -140,7 +140,7 @@ const About = () => {
 
           <div
             className="contact100-more flex-col-c-m"
-            style={{ backgroundImage: `url("../images/bg-01.jpg")` }}
+            style={{ backgroundImage: `url("../../images/bg-01.jpg")` }}
           >
             <div className="flex-w size1 p-b-47">
               <div className="txt1 p-r-25">

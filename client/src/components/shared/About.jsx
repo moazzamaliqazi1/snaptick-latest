@@ -16,7 +16,7 @@ const About = () => {
       <div className="container-fluid pb-2 mb-3 p-5" style={{ backgroundColor: '#003690' }}>
         <h3 className=" section-text section-hi text-uppercase fw-bold"
           style={{
-            color: '#ffb703', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
+            color: '#ffd100', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
             textAlign: 'center', fontSize: '30px', margin: '20px'
           }} >Hi, we're SnapTick.</h3>
         <h3 className=" section-text section-hi"

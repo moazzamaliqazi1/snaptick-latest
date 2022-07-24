@@ -87,7 +87,7 @@ const MyServices = () => {
 
         <div
           className="mt-2 container-fluid"
-          style={{ backgroundColor: "#ffb703", color: "black" }}
+          style={{ backgroundColor: "#ffd100", color: "black" }}
         >
           <div className="row my-2 py-4">
             <div className="col-lg-4 text-center border-dark border-end ">
@@ -186,7 +186,7 @@ const MyServices = () => {
 
         <div
           className="mt-2 container-fluid"
-          style={{ backgroundColor: "#ffb703", color: "black" }}
+          style={{ backgroundColor: "#ffd100", color: "black" }}
         >
           <div className="row my-2 py-4">
             <div className="col-lg-4 text-center border-dark border-end ">
