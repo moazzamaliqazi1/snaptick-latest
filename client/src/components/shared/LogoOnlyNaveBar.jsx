@@ -48,7 +48,6 @@ const LogoOnlyNaveBar = () => {
                     <div
                       className="nav-link px-4 link-dark"
                       style={{ cursor: "pointer", fontSize: 15 }}
-                      onClick={() => window.location.replace("/")}
                     >
                       Services
                     </div>

@@ -94,7 +94,7 @@ const Frame = () => {
                 width={200}
                 height={250}
                 border={50}
-                color={[255, 255, 255, 0.6]} // RGBA
+                color={[255, 255, 255, 0.6]}
                 scale={1}
                 rotate={0}
               />

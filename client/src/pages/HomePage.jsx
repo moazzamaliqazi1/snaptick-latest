@@ -19,10 +19,10 @@ const HomePage = () => {
           <Box>
             <LogoOnlyNaveBar />
           </Box>
-          <Box  id='home'>
+          <Box style={{marginTop: 80}}>
             <SliderHome />
           </Box>
-          <Box style={{ marginBottom: 5 }}>
+          <Box id='services' style={{ marginBottom: 5 }}>
             <MyServices />
           </Box>
           <Box id='about' style={{ marginBottom: 5 }}>

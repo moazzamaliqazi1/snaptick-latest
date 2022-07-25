@@ -15,10 +15,10 @@ const TrackingPage = () => {
           <Box>
             <LogoOnlyNaveBar />
           </Box>
-          <Box sx={{mt:10}}>
+          <Box sx={{mt:15}}>
             <Tracking />
           </Box>
-          <Box>
+          <Box sx={{mt:17}}>
             <Footer />
           </Box>
         </Box>

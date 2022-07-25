@@ -16,7 +16,7 @@ const PhBook = () => {
           <Box>
             <LogoOnlyNaveBar />
           </Box>
-          <Box style={{ marginBottom: 5, marginTop: 200 }}>
+          <Box style={{ marginBottom: 20, marginTop: 120 }}>
             <Book />
           </Box>
           <Box>

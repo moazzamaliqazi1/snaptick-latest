@@ -23,9 +23,11 @@ const Footer = () => {
                 <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" >
                   {/* <!-- Content --> */}
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Stay in Touch</h4><br />
-                  <img src={facebook} className='mr-2' alt="" width={'30px'}></img>
-                  <img src={instagram} alt="" className='' width={'30px'}></img>
-                  <img src={whatsapp} alt="" className='ml-2' width={'30px'}></img>
+
+                  <a href='https://api.whatsapp.com/send?phone=03043999982' target='blank'><img src={whatsapp} className='mr-2' alt="" width={'30px'}></img></a>
+                  <a href='https://www.facebook.com/snaptickpk/' target='blank'><img src={facebook} className='mr-2' alt="" width={'30px'}></img></a>
+                  <a href='https://www.instagram.com/snaptickpk/' target='blank'><img src={instagram} alt="" className='' width={'30px'}></img></a>
+
                   <p className='mt-2' style={{ color: 'white', fontSize: '20px', fontFamily: 'georgia' }}>
                     @snaptickpk
                   </p>
@@ -54,10 +56,10 @@ const Footer = () => {
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>about us</h4><br />
 
                   <p>
-                    <a href="#!" className="text-decoration-none text-white">Who we?</a>
+                    <a href="#about" className="text-decoration-none text-white">Who we?</a>
                   </p>
                   <p>
-                    <a href="#!" className="text-white text-decoration-none" >Track your Order</a>
+                    <a href="#contact" className="text-white text-decoration-none" >Message Us</a>
                   </p>
 
                 </div>

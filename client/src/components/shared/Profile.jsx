@@ -50,10 +50,10 @@ const Profile = () => {
               toast.error(response.data.message);
             }
           } else {
-            toast.error("Please enter valid phone number");
+            toast.error("Please enter valid Phone Number with Country Code +92");
           }
         } else {
-          toast.error("Please enter valid phone number");
+          toast.error("Please enter valid Phone Number with Country Code +92");
         }
       } else {
         toast.error("Please filled all fields");

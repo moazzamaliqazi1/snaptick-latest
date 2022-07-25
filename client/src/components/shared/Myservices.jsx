@@ -58,7 +58,7 @@ const MyServices = () => {
                 {" "}
                 <br />
                 <img
-                  className="section-image section2-image img-fluid my-1"
+                  className="section-image section2-image img-fluid mt-3"
                   alt=""
                   src={pfImage}
                 />
@@ -93,21 +93,21 @@ const MyServices = () => {
             <div className="col-lg-4 text-center border-dark border-end ">
               <h3>REASONABLY SIZED</h3>
               <p>
-                Available in 6x6 <br /> & 8x8 Frame Sizes
+                Available in standard sizes <br />10 x 8 &nbsp; & &nbsp;  14 x 12
               </p>
             </div>
             <div className="col-lg-4 text-center border-dark border-end">
-              <h3>REMOVEABLE</h3>
+              <h3>HANGABLE & STANDABLE</h3>
               <p>
-                Easy to paste anytime anywhere <br /> without damaging your
-                walls
+                Two in One <br />
+                Hangable and Standable
               </p>
             </div>
             <div className="col-lg-4 text-center">
-              <h3>REUSABLE</h3>
+              <h3>REASONABLE PRICE</h3>
               <p>
-                You can change things up by <br />
-                rearranging the frames to your liking
+                Standard Frame: 10 x 8 - Rs. 750 <br />
+                Executive Frame: 14 x 12 - Rs. 1000
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ const MyServices = () => {
                       fontSize: "22px",
                       padding: "5px",
                     }}
-                    to="/book"
+                    to="/photo-book"
                   >
                     GET YOUR BOOK
                   </Link>
@@ -190,17 +190,17 @@ const MyServices = () => {
         >
           <div className="row my-2 py-4">
             <div className="col-lg-4 text-center border-dark border-end ">
-              <h3>Cheap Price</h3>
-              <p>Only in 500 Rs</p>
+              <h3>REASONABLE PRICE</h3>
+              <p>Only in Rs. 700</p>
             </div>
 
             <div className="col-lg-4 text-center border-dark border-end">
-              <h3>Up to 15 Photos</h3>
-              <p>Select Photos from your Device</p>
+              <h3>Up to 10 Photos</h3>
+              <p>Upload Photos from your Device</p>
             </div>
 
             <div className="col-lg-4 text-center">
-              <h3>4 X 6 Book</h3>
+              <h3>6 X 8 Book</h3>
               <p>Get your Book in Perfect Size</p>
             </div>
           </div>
