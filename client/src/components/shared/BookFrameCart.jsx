@@ -60,22 +60,40 @@ const BookFrameCart = ({ setItem, cart, setCart, setTotalPrice }) => {
         draggable={false}
         pauseOnHover={false}
       />
-      <h6>Books</h6>
+      
+      <div className="col-md-12 col-xs-12 mt-4">
+        <center>
+          <div className="col-md-2"></div>
+          <div className="col-md-3 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Books:</h4>
+          </div>
+
+          <div className="col-md-2 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Quantity:</h4>
+          </div>
+
+          <div className="col-md-3 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Price:</h4>
+          </div>
+        </center>
+      </div>
+
       {cart.filter((item)=>item.order_type === "book").map((product) => {
         return (
           <>
-            <div className="col-md-7 col-xs-12 " style={{ float: "right" }} key={product._id}>
+            <div className="col-md-12 col-xs-12 mb-5" style={{ float: "right" }} key={product._id}>
               <center>
-                <div className="col-md-5 col-xs-12 pt-4">
+                <div className="col-md-2"></div>
+                <div className="col-md-3 col-xs-12 pt-3">
                   <img
-                    className="fi1"
+                    className="bookcart"
                     src={`http://localhost:8000/static/${
                       JSON.parse(product.image)[0]
                     }`}
                     alt=""
                   />
                 </div>
-                <div className="col-md-3 col-xs-12 pt-4">
+                <div className="col-md-2 col-xs-12 pt-3">
                   <Select
                     options={options}
                     className="m-2"
@@ -86,8 +104,7 @@ const BookFrameCart = ({ setItem, cart, setCart, setTotalPrice }) => {
                     }}
                   />
                 </div>
-                <div className="col-md-1 col-xs-12"></div>
-                <div className="col-md-2 col-xs-12 pt-4">
+                <div className="col-md-3 col-xs-12 pt-3">
                   <p
                     className="fw-bold"
                     style={{ fontSize: "20px", paddingTop: "10px" }}

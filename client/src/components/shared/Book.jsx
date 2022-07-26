@@ -21,7 +21,7 @@ const Book = () => {
   const token = cookies.get("token");
   const crop = {
     unit: "%",
-    aspect: 6 / 8,
+    aspect: 3 / 4,
     width: "100",
   };
   const uploadImages = async () => {

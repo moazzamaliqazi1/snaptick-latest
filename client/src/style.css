@@ -13316,3 +13316,9 @@ ul li {
   height: 100%;
   object-fit: cover;
 }
+
+
+.bookcart
+{
+  width: 40%;
+}

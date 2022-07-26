@@ -75,7 +75,16 @@ const Profile = () => {
         draggable={false}
         pauseOnHover={false}
       />
-      <div className="col-md-12">
+
+      <div className="col-md-12" style={{backgroundColor:'#D0342C'}}>
+        <center>
+          <h4 className="text-uppercase  p-2" style={{ color: "white" }}>
+          "Add your Phone Number & Address, after making new account. This is mandatory!"
+          </h4>
+        </center>
+      </div>
+      
+      <div className="col-md-12 mt-2">
         <center>
           <h3 className="text-uppercase fw-bold" style={{ color: "#003690" }}>
             User Profile

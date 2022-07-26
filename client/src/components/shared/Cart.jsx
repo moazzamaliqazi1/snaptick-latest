@@ -3,7 +3,7 @@ import { RadioButton, RadioGroup } from "react-radio-buttons";
 import PhoneInput from "react-phone-input-2";
 import { useSelector } from "react-redux";
 import Select from "react-select";
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
 import user from "../../api/user";
@@ -198,50 +198,21 @@ const Cart = () => {
       />
       <div className="container-fluid">
         <div className="row mt-5 pt-5">
-          <div className="col-md-1"></div>
 
-          <div className="col-md-3">
-            <h2>
-              {totalPrice}
-              <b>Checkout:</b>
-            </h2>
-          </div>
-
-          <div className="col-md-1"></div>
-
-          <div className="col-md-1">
-            <h4>
-              <b>Frames:</b>
-            </h4>
-          </div>
-
-          <div className="col-md-2"></div>
-
-          <div className="col-md-1">
-            <h4>
-              <b>Quantity:</b>
-            </h4>
-          </div>
-
-          <div className="col-sm-1"></div>
-
-          <div className="col-md-2">
-            <h4>
-              <b>Price:</b>
-            </h4>
-          </div>
         </div>
       </div>
 
       <div className="container">
         <div className="row">
           <div
-            className="col-md-4 col-xs-12 m-0 p-0 left-column"
-            style={{ float: "left" }}
+            className="col-md-6 col-xs-12 m-0 p-0 left-column"
           >
+            <h2>
+              <b>Checkout:</b>
+            </h2>
             <form
               className="contact100-form validate-form m-0 p-0"
-              style={{ width: "100%" }}
+              style={{ width: "80%" }}
             >
               <label className="label-input100" for="Phone">
                 Enter Phone Number *
@@ -269,8 +240,11 @@ const Cart = () => {
                 Address *
               </label>
               <div
-                className="wrap-input100 validate-input"
+                style={{ height: "60px" }}
+
+                className="wrap-input100 validate-input required"
                 data-validate="Address is required"
+
               >
                 <textarea
                   className="input100"
@@ -285,8 +259,20 @@ const Cart = () => {
                 <span className="focus-input100"></span>
               </div>
 
-              <div className="p-3">
-                <b>Select Payment Method:</b> <br></br>
+            </form>
+
+          </div>
+
+          <div
+            className="col-md-6 col-xs-12 m-0 p-0 "
+          >
+            <form
+              className="contact100-form validate-form m-0 p-0"
+              style={{ width: "100%" }}
+            >
+
+              <div className="pt-5 mt-2" >
+                <h4 style={{ color: '#003690' }}><b>Select Payment Method:</b></h4>
                 <input
                   className="pt-2"
                   type="radio"
@@ -323,6 +309,7 @@ const Cart = () => {
               </div>
               {profile.payment_cards && item.payment_type !== "cash" ? (
                 <>
+                  <h6 className=" mt-3 fw-bold" style={{ color: '#D0342C' }}>You can Add your Payment Cards from USER PROFILE&nbsp;- Select Card: </h6>
                   <RadioGroup
                     style={{ width: "100%" }}
                     onChange={(value) => {
@@ -347,7 +334,10 @@ const Cart = () => {
                 </>
               ) : null}
             </form>
+            <h4 className="fw-bold text-uppercase mt-3">Total Price:  {totalPrice}</h4>
+
             <Button
+              className="mt-2"
               style={{
                 backgroundColor: "#003690",
                 color: "white",
@@ -361,26 +351,44 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      
+      <div className="col-md-12 col-xs-12 mt-4">
+        <center>
+          <div className="col-md-2"></div>
+          <div className="col-md-3 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Frames:</h4>
+          </div>
+
+          <div className="col-md-2 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Quantity:</h4>
+          </div>
+
+          <div className="col-md-3 col-xs-12 pt-4">
+            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Price:</h4>
+          </div>
+        </center>
+      </div>
+
       {cart
         .filter((item2) => item2.order_type === "frame")
         .map((product) => {
           return (
             <>
-              <div className="col-md-7 col-xs-12 " style={{ float: "right" }}>
+              <div className="col-md-12 col-xs-12 ">
                 <center>
-                  <div className="col-md-5 col-xs-12 pt-4" key={product._id}>
+                  <div className="col-md-2"></div>
+                  <div className="col-md-3 col-xs-12 pt-4" key={product._id}>
                     <div className={product.frame_id}>
                       <img
                         className="fi1"
-                        src={`http://localhost:8000/static/${
-                          JSON.parse(product.image)[0]
-                        }`}
+                        src={`http://localhost:8000/static/${JSON.parse(product.image)[0]
+                          }`}
                         alt=""
                       />
                     </div>
                   </div>
 
-                  <div className="col-md-3 col-xs-12 pt-4">
+                  <div className="col-md-2 col-xs-12 pt-4">
                     <Select
                       options={options}
                       className="m-2"
@@ -407,9 +415,8 @@ const Cart = () => {
                     />
                   </div>
 
-                  <div className="col-md-1 col-xs-12"></div>
 
-                  <div className="col-md-2 col-xs-12 pt-4">
+                  <div className="col-md-3 col-xs-12 pt-4">
                     <p
                       className="fw-bold"
                       style={{ fontSize: "20px", paddingTop: "10px" }}
