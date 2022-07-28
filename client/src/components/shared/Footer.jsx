@@ -67,7 +67,7 @@ const Footer = () => {
                 {/* <!-- Grid column --> */}
                 <div className="col-md-3 mx-auto mb-md-0 mb-4">
                   {/* <!-- Links --> */}
-                  <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Contact</h4> <br />
+                  <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Address</h4> <br />
 
                   <p className="text-white"><i className="fas fa-home mr-3 text-white"></i> Lahore, 54000, Pakistan</p>
                   <p className="text-white"><i className="fas fa-envelope mr-3 text-white"></i> help@snaptickpk.com</p>
