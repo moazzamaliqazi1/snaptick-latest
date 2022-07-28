@@ -48,10 +48,10 @@ const Tracking = () => {
                 </div>
               </div>
               
-              <div className="mt-3" style={{backgroundColor: '#002856'}}>
+              <div className="mt-3" style={{backgroundColor: ''}}>
               <button
                 className="  py-2 px-3"
-                style={{  color:'white'}}
+                style={{  color:'#002856'}}
                 id=""
                 type="button"
                 name=""
