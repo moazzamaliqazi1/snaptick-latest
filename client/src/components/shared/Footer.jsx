@@ -16,11 +16,11 @@ const Footer = () => {
 
           {/* <!-- Section: Links  --> */}
           <section className="pt-4">
-            <div className="container  text-md-start">
+            <div className="container-xl  text-md-start">
               {/* <!-- Grid row --> */}
               <div className="row mt-3">
                 {/* <!-- Grid column --> */}
-                <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" >
+                <div className="col-md-3  mx-auto mb-4" >
                   {/* <!-- Content --> */}
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Stay in Touch</h4><br />
 
@@ -35,14 +35,14 @@ const Footer = () => {
                 {/* <!-- Grid column --> */}
 
                 {/* <!-- Grid column --> */}
-                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div className="col-md-3 mx-auto mb-4">
                   {/* <!-- Links --> */}
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Services</h4><br />
                   <p>
                     <Link to="/photo-frame" className="text-white text-decoration-none">Snap Frame</Link>
                   </p>
                   <p>
-                    <Link to="/PhotoBook" className="text-white text-decoration-none">Snap Book</Link>
+                    <Link to="/photo-book" className="text-white text-decoration-none">Snap Book</Link>
                   </p>
                   <p>
                     <Link to="/hire-photographer" className="text-white text-decoration-none">Hire Photographer</Link>
@@ -51,21 +51,21 @@ const Footer = () => {
                 {/* <!-- Grid column --> */}
 
                 {/* <!-- Grid column --> */}
-                <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div className="col-md-3 mx-auto mb-4">
                   {/* <!-- Links --> */}
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>about us</h4><br />
 
                   <p>
-                    <a href="#about" className="text-decoration-none text-white">Who we?</a>
+                    <a href="#about" className="text-decoration-none text-white">About Us</a>
                   </p>
                   <p>
-                    <a href="#contact" className="text-white text-decoration-none" >Message Us</a>
+                    <a href="#contact" className="text-white text-decoration-none" >Help</a>
                   </p>
 
                 </div>
                 {/* <!-- Grid column --> */}
                 {/* <!-- Grid column --> */}
-                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <div className="col-md-3 mx-auto mb-md-0 mb-4">
                   {/* <!-- Links --> */}
                   <h4 className="text-uppercase fw-bold" style={{ color: 'white' }}>Contact</h4> <br />
 

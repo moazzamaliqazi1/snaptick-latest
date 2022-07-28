@@ -86,7 +86,7 @@ const LogoOnlyNaveBar = () => {
                   <div
                     className="nav-link px-4 link-dark"
                     style={{ cursor: "pointer", fontSize: 15 }}
-                    onClick={() => window.location.replace("/#about")}
+                    onClick={() => window.location.replace("/about-us")}
                   >
                     About Us
                   </div>
@@ -95,9 +95,9 @@ const LogoOnlyNaveBar = () => {
                   <div
                     className="nav-link px-4 link-dark"
                     style={{ cursor: "pointer", fontSize: 15 }}
-                    onClick={() => window.location.replace("/#contact")}
+                    onClick={() => window.location.replace("/help")}
                   >
-                    Contact Us
+                    Help
                   </div>
                 </li>
               </ul>
@@ -108,13 +108,13 @@ const LogoOnlyNaveBar = () => {
                     {" "}
                     <i
                       className="bi bi-cart p-2"
-                      style={{ backgroundColor: "#003690", color: "white" }}
+                      style={{ backgroundColor: "#002856", color: "white" }}
                     ></i>
                   </Link>
                 ) : null}
                 <Link
                   className="link-dark text-decoration-none p-3"
-                  style={{ color: "#003690" }}
+                  style={{ color: "#002856" }}
                   onClick={(event) => {
                     if (user && user.user_name) {
                       event.preventDefault();
@@ -128,7 +128,7 @@ const LogoOnlyNaveBar = () => {
                 {user && user.user_type ? (
                   <Link
                     className="fw-bold link-dark text-decoration-none p-3"
-                    style={{ color: "#003690" }}
+                    style={{ color: "#002856" }}
                     onClick={() => {
                       cookies.remove("token");
                       dispatch(addUser({}));

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import MultiImageInput from "react-multiple-image-input";
-import icon1 from "../../images/picicon.png";
-import icon2 from "../../images/colsizicon.png";
-import icon3 from "../../images/delicon.png";
-import pbImage from "../../images/pb.png";
+import book from "../../images/book (2).jpg";
+import book1 from "../../images/book (4).jpg";
 import Cookies from "universal-cookie";
 import user from "../../api/user";
 function DataURIToBlob(dataURI) {
@@ -57,42 +55,34 @@ const Book = () => {
 
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-3">
             <center>
               {" "}
-              <h3
-                className="text-uppercase fw-bold"
-                style={{ color: "#003690" }}
-              >
-                Snap Book:
-              </h3>{" "}
               <br />
               <div>
                 <img
-                  src={icon1}
-                  style={{ width: "100px", height: "100px" }}
+                  src={book}
+                  style={{ width: "300px", height: "300px" }}
                   alt=""
                   className="section-image section2-image img-fluid"
                 />
-                <p>Upload your Photos</p>
               </div>
               <div>
                 <img
-                  src={icon3}
-                  style={{ width: "100px", height: "100px" }}
+                  src={book1}
+                  style={{ width: "300px", height: "300px" }}
                   alt=""
                   className="section-image section2-image img-fluid"
                 />
-                <p>Book will delivered</p>
               </div>
             </center>
           </div>
 
-          <div className="col-md-9 ml-5 pl-5">
+          <div className="col-md-8 ml-5 pl-5 mt-4">
 
             <h3
               className="text-uppercase fw-bold"
-              style={{ color: "#003690" }}
+              style={{ color: "#002856" }}
             >
               upload upto 10 images:
             </h3>
@@ -104,7 +94,7 @@ const Book = () => {
               theme="light"
             />
 
-            <button onClick={uploadImages} className=" py-2 px-3" style={{ float: 'right', color: 'white', backgroundColor: '#003690' }}>Add to Cart</button>
+            <button onClick={uploadImages} className=" py-2 px-3" style={{ float: 'right', color: 'white', backgroundColor: '#002856' }}>Add to Cart</button>
 
           </div>
         </div>

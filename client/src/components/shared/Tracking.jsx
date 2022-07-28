@@ -23,8 +23,8 @@ const Tracking = () => {
 
       <div style={{ display: "inline" }}>
         <center>
-          <h4 className="fw-bold" style={{ color: '#003690' }}>{name ? `Your tracking id is "${name}"` : ""}</h4>
-          <h3 className="mt-4 fw-bold" style={{ color: '#003690' }}>TRACK YOUR ORDER WITH TRACKING ID:</h3>
+          <h4 className="fw-bold" style={{ color: '#002856' }}>{name ? `Your tracking id is "${name}"` : ""}</h4>
+          <h3 className="mt-4 fw-bold" style={{ color: '#002856' }}>TRACK YOUR ORDER WITH TRACKING ID:</h3>
 
           <div className="container mt-4">
             <div className="row">
@@ -47,10 +47,11 @@ const Tracking = () => {
 
                 </div>
               </div>
-
+              
+              <div className="mt-3" style={{backgroundColor: '#002856'}}>
               <button
-                className=" py-2 px-3"
-                style={{ float: 'right', color: '#003690'}}
+                className="  py-2 px-3"
+                style={{  color:'white'}}
                 id=""
                 type="button"
                 name=""
@@ -58,8 +59,8 @@ const Tracking = () => {
               >
                 <b>Track my Order</b>
               </button>
-
-              {status ? `Your order status is ${status}` : ""}
+              </div>
+              <h4 className="fw-bold mt-4" style={{ color: '#002856' }}> {status ? `Your order is ${status}` : ""} </h4>
 
               <div className="col-md-4"></div>
             </div>

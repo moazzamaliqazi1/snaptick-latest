@@ -23,7 +23,7 @@ const Photographer = () => {
         <>
             <div className='col-md-12'>
                 <center>
-                    <h1 className='text-uppercase fw-bold' style={{ color: '#003690' }}>Ruby'Z Studio</h1>
+                    <h1 className='text-uppercase fw-bold' style={{ color: '#002856' }}>Ruby'Z Studio</h1>
                     <p>@Rubyzphotos  · Photographer / Cinematographer 🇵🇰</p>
 
                     <a href='https://api.whatsapp.com/send?phone=03124288806' target='blank'><img src={whatsapp} className='mr-3' alt="" width={'30px'}></img></a>

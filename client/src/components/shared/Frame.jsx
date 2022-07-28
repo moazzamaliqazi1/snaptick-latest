@@ -108,7 +108,7 @@ const Frame = () => {
           className="container-fluid col-md-12 py-2 mt-5"
           style={{ borderStyle: "solid", border: "5px" }}
         >
-          <h1 style={{ color: "#003690", fontFamily: "georgia" }}>
+          <h1 style={{ color: "#002856", fontFamily: "georgia" }}>
             UPLOAD IMAGE
           </h1>
           <br />
@@ -126,9 +126,9 @@ const Frame = () => {
                 />
                 <CloudUploadIcon
                   style={{
-                    color: "#003690",
+                    color: "#002856",
                     fontSize: "200px",
-                    border: "1px solid #003690",
+                    border: "1px solid #002856",
                     borderRadius: "50%",
                     padding: "50px",
                   }}
@@ -145,7 +145,7 @@ const Frame = () => {
       {selectedImage ? <Box>
         <div
           className="container-fluid mb-3 pt-3 pb-4"
-          style={{ backgroundColor: "#003690" }}
+          style={{ backgroundColor: "#002856" }}
         >
           <div className="row">
             <div className="col-md-4 col-xs-12">
@@ -230,14 +230,14 @@ const Frame = () => {
                       <p className="pt-2" style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-crop"
                           ></i>
                         </button>
                         |
                         <button className="m-2" onClick={()=>addCart(frame)}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-cart-arrow-down"
                           ></i>
                         </button>
@@ -263,14 +263,14 @@ const Frame = () => {
                       <p className="pt-2" style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-crop"
                           ></i>
                         </button>
                         |
                         <button className="m-2" onClick={()=>addCart(frame)}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-cart-arrow-down"
                           ></i>
                         </button>
@@ -285,7 +285,7 @@ const Frame = () => {
 
         <div
           className="container-fluid mb-3 pt-3 pb-4"
-          style={{ backgroundColor: "#003690" }}
+          style={{ backgroundColor: "#002856" }}
         >
           <div className="row">
             <div className="col-md-4 col-xs-12">
@@ -370,14 +370,14 @@ const Frame = () => {
                       <p className={"pt-2"} style={{ fontSize: "20px" }}>
                         <button className="m-2" onClick={() => handleOpen()}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-crop"
                           ></i>
                         </button>
                         |
                         <button className="m-2" onClick={()=>addCart(`${frame}${index + 1}${index + 1}`)}>
                           <i
-                            style={{ fontSize: "25px", color: "#003690" }}
+                            style={{ fontSize: "25px", color: "#002856" }}
                             className="fa-solid fa-cart-arrow-down"
                           ></i>
                         </button>

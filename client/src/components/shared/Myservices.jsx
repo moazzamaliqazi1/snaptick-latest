@@ -18,7 +18,7 @@ const MyServices = () => {
                 {" "}
                 <h3
                   className="text-uppercase fw-bold"
-                  style={{ color: "#003690" }}
+                  style={{ color: "#002856" }}
                 >
                   Snap Frame:
                 </h3>{" "}
@@ -65,7 +65,7 @@ const MyServices = () => {
                 <button
                   type="button"
                   className="my-2"
-                  style={{ backgroundColor: "#003690", border: "none" }}
+                  style={{ backgroundColor: "#002856", border: "none" }}
                 >
                   <Link
                     className="text-uppercase fw-bold"
@@ -122,7 +122,7 @@ const MyServices = () => {
                 {" "}
                 <h3
                   className="text-uppercase fw-bold"
-                  style={{ color: "#003690" }}
+                  style={{ color: "#002856" }}
                 >
                   Snap Book:
                 </h3>{" "}
@@ -163,7 +163,7 @@ const MyServices = () => {
                 <button
                   type="button"
                   className="my-2"
-                  style={{ backgroundColor: "#003690", border: "none" }}
+                  style={{ backgroundColor: "#002856", border: "none" }}
                 >
                   <Link
                     className="text-uppercase fw-bold"

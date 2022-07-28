@@ -13,7 +13,7 @@ const About = () => {
     <>
 
       <hr className="m-5" />
-      <div className="container-fluid pb-2 mb-3 p-5" style={{ backgroundColor: '#003690' }}>
+      <div className="container-fluid pb-2 mb-3 p-5" style={{ backgroundColor: '#002856' }}>
         <h3 className=" section-text section-hi text-uppercase fw-bold"
           style={{
             color: '#ffd100', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
@@ -21,10 +21,10 @@ const About = () => {
           }} >Hi, we're SnapTick.</h3>
         <h3 className=" section-text section-hi"
           style={{
-            color: 'white', fontFamily: 'georgia',
+            color: 'white', fontFamily: 'georgia' ,
             textAlign: 'center', fontSize: '25px',  margin: '25px'
           }} >
-          We believe that the photos on your phone  deserve to be celebrated.  They don’t have to be perfect.
+          We believe that the photos on your phone deserve to be celebrated.  They don’t have to be perfect.
           You don’t have to look flawless.  If the photo is meaningful to you,  it’s meant to be on your wall or in a book. </h3>
 
       </div>

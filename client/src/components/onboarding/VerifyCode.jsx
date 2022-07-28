@@ -89,7 +89,7 @@ const VerifyCode = () => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ color: "white", backgroundColor: '#003690', float: 'right' }}
+              sx={{ color: "white", backgroundColor: '#002856', float: 'right' }}
               onClick={codeCheck}
             >
               Verify
@@ -97,7 +97,7 @@ const VerifyCode = () => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ color: "white", backgroundColor: '#003690', float: 'left', ml:3 }}
+              sx={{ color: "white", backgroundColor: '#002856', float: 'left', ml:3 }}
               onClick={resendCode}
             >
               Resend Code

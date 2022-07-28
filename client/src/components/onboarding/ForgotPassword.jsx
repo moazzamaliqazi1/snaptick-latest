@@ -93,7 +93,7 @@ const ForgotPassword = () => {
         </Box>
         <Box>
           <ActionButtonCustomize
-            sx={{ color: "white", backgroundColor: '#003690', float: 'right' }}
+            sx={{ color: "white", backgroundColor: '#002856', float: 'right' }}
             variant="contained"
             fullWidth
             size="medium"

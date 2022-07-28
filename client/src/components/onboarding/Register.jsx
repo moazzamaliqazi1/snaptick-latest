@@ -198,7 +198,7 @@ const Register = () => {
             <Button
               variant="contained"
               size="large"
-              sx={{ color: "white", backgroundColor: '#003690', float: 'right' }}
+              sx={{ color: "white", backgroundColor: '#002856', float: 'right' }}
               onClick={registerCheck}
             >
               Register
@@ -209,7 +209,7 @@ const Register = () => {
             <Button
               variant="text"
               size="medium"
-              sx={{ color: '#003690' }}
+              sx={{ color: '#002856' }}
               onClick={() => navigate("/login")}
             >
               already have account?

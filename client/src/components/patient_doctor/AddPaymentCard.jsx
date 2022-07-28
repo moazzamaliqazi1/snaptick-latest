@@ -54,7 +54,7 @@ const AddPaymentCard = () => {
 
         <div className='col-md-12'>
           <center>
-            <h3 className='text-uppercase fw-bold' style={{ color: '#003690' }}>Add New Payment Card:</h3>
+            <h3 className='text-uppercase fw-bold' style={{ color: '#002856' }}>Add New Payment Card:</h3>
           </center>
         </div>
 
@@ -118,7 +118,7 @@ const AddPaymentCard = () => {
               <Grid item xs={12}>
                 <Button
                   variant="contained"
-                  sx={{ color: "white", backgroundColor: '#003690' }}
+                  sx={{ color: "white", backgroundColor: '#002856' }}
                   onClick={addPaymentCard}
                 >
                   Add Card

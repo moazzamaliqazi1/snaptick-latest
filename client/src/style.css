@@ -13256,7 +13256,7 @@ ul li {
   padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  border: 2px solid #003690;
+  border: 2px solid #002856;
 }
 
 .fi1 {
@@ -13277,7 +13277,7 @@ ul li {
 }
 
 .detFrame {
-  color: #003690;
+  color: #002856;
 }
 
 .framesDis {
@@ -13293,7 +13293,9 @@ ul li {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: white;
+  color: white;
+  
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -13310,6 +13312,10 @@ ul li {
   align-items: center;
 }
 
+.swiper-button-disabled {
+  opacity: 0 !important;
+  }
+
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -13322,3 +13328,37 @@ ul li {
 {
   width: 40%;
 }
+
+
+
+.iconlinkshelp
+{
+  color: #002856;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.iconshelp
+{
+  border: none;
+}
+
+.headinghelp
+{
+  color: #002856;
+  font-weight: 700;
+}
+
+.questions
+{
+  color: #002856;
+  font-weight: 500;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.answers
+{
+  font-size: 18px;
+}
+

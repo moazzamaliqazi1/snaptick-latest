@@ -146,7 +146,7 @@ const Login = () => {
               size="large"
               sx={{
                 color: "white",
-                backgroundColor: "#003690",
+                backgroundColor: "#002856",
                 float: "right",
               }}
               onClick={loginCheck}
@@ -160,7 +160,7 @@ const Login = () => {
             <Button
               variant="text"
               size="medium"
-              sx={{ color: "#003690", float: "left" }}
+              sx={{ color: "#002856", float: "left" }}
               onClick={() => navigate("/register")}
             >
               don't have account?
@@ -168,7 +168,7 @@ const Login = () => {
             <Button
               variant="text"
               size="medium"
-              sx={{ color: "#003690", float: "right" }}
+              sx={{ color: "#002856", float: "right" }}
               onClick={() => navigate("/forgot-password")}
             >
               forgot password?

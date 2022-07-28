@@ -65,15 +65,15 @@ const BookFrameCart = ({ setItem, cart, setCart, setTotalPrice }) => {
         <center>
           <div className="col-md-2"></div>
           <div className="col-md-3 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Books:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Books:</h4>
           </div>
 
           <div className="col-md-2 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Quantity:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Quantity:</h4>
           </div>
 
           <div className="col-md-3 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Price:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Price:</h4>
           </div>
         </center>
       </div>

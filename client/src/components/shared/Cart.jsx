@@ -272,7 +272,7 @@ const Cart = () => {
             >
 
               <div className="pt-5 mt-2" >
-                <h4 style={{ color: '#003690' }}><b>Select Payment Method:</b></h4>
+                <h4 style={{ color: '#002856' }}><b>Select Payment Method:</b></h4>
                 <input
                   className="pt-2"
                   type="radio"
@@ -334,12 +334,12 @@ const Cart = () => {
                 </>
               ) : null}
             </form>
-            <h4 className="fw-bold text-uppercase mt-3">Total Price:  {totalPrice}</h4>
+            <h4 className="fw-bold text-uppercase mt-3" >Total Price:  {totalPrice}</h4>
 
             <Button
               className="mt-2"
               style={{
-                backgroundColor: "#003690",
+                backgroundColor: "#002856",
                 color: "white",
                 fontSize: "15px",
                 alignSelf: "right",
@@ -356,15 +356,15 @@ const Cart = () => {
         <center>
           <div className="col-md-2"></div>
           <div className="col-md-3 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Frames:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Frames:</h4>
           </div>
 
           <div className="col-md-2 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Quantity:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Quantity:</h4>
           </div>
 
           <div className="col-md-3 col-xs-12 pt-4">
-            <h4 className="fw-bold text-uppercase" style={{color: '#003690'}}>Price:</h4>
+            <h4 className="fw-bold text-uppercase" style={{color: '#002856'}}>Price:</h4>
           </div>
         </center>
       </div>

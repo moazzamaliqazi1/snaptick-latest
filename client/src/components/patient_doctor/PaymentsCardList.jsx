@@ -9,7 +9,7 @@ const PaymentsCardList = () => {
     <>
       <div className='col-md-12'>
         <center>
-          <h3 className='text-uppercase fw-bold' style={{ color: '#003690' }}>your payment cards:</h3>
+          <h3 className='text-uppercase fw-bold' style={{ color: '#002856' }}>your payment cards:</h3>
         </center>
       </div>
 

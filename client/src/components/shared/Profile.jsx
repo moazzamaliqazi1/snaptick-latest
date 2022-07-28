@@ -86,7 +86,7 @@ const Profile = () => {
       
       <div className="col-md-12 mt-2">
         <center>
-          <h3 className="text-uppercase fw-bold" style={{ color: "#003690" }}>
+          <h3 className="text-uppercase fw-bold" style={{ color: "#002856" }}>
             User Profile
           </h3>
         </center>
@@ -97,22 +97,22 @@ const Profile = () => {
           <center>
             <br></br>
             <h4 className="fw-bold">Name:</h4>
-            <h5 style={{ color: "#003690" }}>
+            <h5 style={{ color: "#002856" }}>
               {profile.user_name ? profile.user_name : "Loading"}
             </h5>
 
             <h4 className="fw-bold">Email:</h4>
-            <h5 style={{ color: "#003690" }}>
+            <h5 style={{ color: "#002856" }}>
               {profile.email ? profile.email : "Loading"}
             </h5>
 
             <h4 className="fw-bold">Phone Number:</h4>
-            <h5 style={{ color: "#003690" }}>
+            <h5 style={{ color: "#002856" }}>
               {profile.phone_number ? profile.phone_number : "NA"}
             </h5>
 
             <h4 className="fw-bold">Address:</h4>
-            <h5 style={{ color: "#003690" }}>
+            <h5 style={{ color: "#002856" }}>
               {profile.address ? profile.address : "NA"}
             </h5>
           </center>
@@ -150,7 +150,7 @@ const Profile = () => {
               <Button
                 variant="contained"
                 size="medium"
-                sx={{ color: "white", backgroundColor: "#003690" }}
+                sx={{ color: "white", backgroundColor: "#002856" }}
                 onClick={updateProfile}
               >
                 Update
@@ -167,8 +167,8 @@ const Profile = () => {
           <Table>
             <thead>
               <tr>
-                <th style={{ color: "#003690" }}>Order ID</th>
-                <th style={{ color: "#003690" }}>Status</th>
+                <th style={{ color: "#002856" }}>Order ID</th>
+                <th style={{ color: "#002856" }}>Status</th>
               </tr>
             </thead>
             <tbody>

@@ -32,6 +32,8 @@ import HomePage from "./pages/HomePage.jsx";
 import PhotoFrame from "./pages/Phframe.jsx";
 import PhotoBook from "./pages/PhBook.jsx";
 import HirePhotographer from "./pages/HirePhotographer.jsx";
+import AboutUs from "./pages/AboutUs";
+import Help from "./pages/Help";
 import UserProfile from "./pages/UserProfile";
 import Cart from "./pages/Cart.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
@@ -80,6 +82,8 @@ const App = () => {
           <Route exact path="/hire-photographer" element={<HirePhotographer />} />
           <Route exact path="/user-profile" element={<UserProfile />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/about-us" element={<AboutUs />} />
+          <Route exact path="/help" element={<Help />} />
           <Route exact path="/admin-page" element={<AdminPage />} />
           <Route exact path="/tracking" element={<TrackingPage />} />
           <Route exact path="/photo-book" element={<PhotoBook />} />
