@@ -6,7 +6,8 @@ import Footer from "../components/shared/Footer";
 import Auth from "../Auth";
 import { useSelector } from "react-redux";
 
-const About = () => { const initialState = useSelector((state) => state.initialState);
+const About = () => { 
+  const initialState = useSelector((state) => state.initialState);
   return (
     <>
       <Auth />
