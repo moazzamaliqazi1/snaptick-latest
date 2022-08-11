@@ -65,7 +65,7 @@ const VerifyCode = () => {
       <Container maxWidth="sm">
         <Paper
           elevation={4}
-          sx={{ borderRadius: 2, my: 2, p: 4 }}
+          sx={{ borderRadius: 2, my: 4, p: 4 }}
           className="w-100 min-w40"
         >
           <Box sx={{ mb: 2 }}>
