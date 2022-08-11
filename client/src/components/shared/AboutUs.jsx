@@ -75,7 +75,7 @@ const About = () => {
                             <br />
                             Keep smiling!
                             <br />
-                            <b>ARSLAN SALEEM | MOAZZAM ALI</b><br />
+                            <b>MOAZZAM ALI | ARSLAN SALEEM</b><br />
                             Founder of SnapTick
                         </h3>
                     </div>

@@ -13229,7 +13229,7 @@ ul li {
 
 .frame333 {
   border: 40px solid transparent;
-  border-image: url(./images/frame10.png) 18% round;
+  border-image: url(./images/frame5.png) 15% round;
   width: 200px;
   height: 250px;
 }
@@ -13323,10 +13323,11 @@ ul li {
   object-fit: cover;
 }
 
-
 .bookcart
 {
-  width: 40%;
+  border: 30px solid transparent;
+  border-image: url(./images/bookcart.png) 8% round;
+  width: 58%;
 }
 
 

@@ -19,7 +19,7 @@ const TrackingPage = () => {
           <Box sx={{ mt: 15 }}>
             <Tracking />
           </Box>
-          <Box sx={{ mt: 20 }}>
+          <Box sx={{ mt: 5 }}>
             <Footer />
           </Box>
         </Box>

@@ -84,7 +84,7 @@ const BookFrameCart = ({ setItem, cart, setCart, setTotalPrice }) => {
             <div className="col-md-12 col-xs-12 mb-5" style={{ float: "right" }} key={product._id}>
               <center>
                 <div className="col-md-2"></div>
-                <div className="col-md-3 col-xs-12 pt-3">
+                <div className="col-md-3 col-xs-12 pt-3 bookcartdes">
                   <img
                     className="bookcart"
                     src={`http://localhost:8000/static/${
