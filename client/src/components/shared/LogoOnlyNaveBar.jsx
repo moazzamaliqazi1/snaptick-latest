@@ -36,7 +36,7 @@ const LogoOnlyNaveBar = () => {
                   <img
                     src={logoImage}
                     width="150"
-                    height="55px"
+                    height="75px"
                     alt="SnapTick"
                   />
                 </div>
