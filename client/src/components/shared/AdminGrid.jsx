@@ -17,23 +17,23 @@ const AdminGrid = () => {
   const cookies = new Cookies();
   const token = cookies.get("token");
   const navigate = useNavigate()
-  const updatedState = async(status, _id, transaction_id)=>{
+  const updatedState = async (status, _id, transaction_id) => {
     try {
-        const ids = dataSource.reduce((prev, current)=>{
-            if(current.transaction_id === transaction_id){
-                return [
-                    ...prev,
-                    current._id
-                ]
-            }
-            else {
-                return prev
-            }
-        }, [])
-        await user.updateOrderStatus(status, ids, token)
-        await fetchOrders()
+      const ids = dataSource.reduce((prev, current) => {
+        if (current.transaction_id === transaction_id) {
+          return [
+            ...prev,
+            current._id
+          ]
+        }
+        else {
+          return prev
+        }
+      }, [])
+      await user.updateOrderStatus(status, ids, token)
+      await fetchOrders()
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
   }
   const columns = [
@@ -57,12 +57,12 @@ const AdminGrid = () => {
     },
     {
       name: "frame_id",
-      header: "Frame Id",
+      header: "Item Id",
       defaultFlex: 1,
       type: "text",
       render: ({ value }) => {
         return (
-          <span>{value ? value: "Book"}</span>
+          <span>{value ? value : "Book"}</span>
         );
       },
     },
@@ -84,18 +84,18 @@ const AdminGrid = () => {
       defaultFlex: 1,
       render: ({ value }) => {
         return <>
-        {JSON.parse(value).map((item)=>{
-          return (
-            <img
-              onClick={() =>
-                downloadImage(`http://localhost:8000/static/${item}`, item)
-              }
-              style={{ maxWidth: "38px", width: "100%" }}
-              src={`http://localhost:8000/static/${item}`}
-              alt="frame"
-            />
-          );
-        })}
+          {JSON.parse(value).map((item) => {
+            return (
+              <img
+                onClick={() =>
+                  downloadImage(`http://localhost:8000/static/${item}`, item)
+                }
+                style={{ maxWidth: "38px", width: "100%" }}
+                src={`http://localhost:8000/static/${item}`}
+                alt="frame"
+              />
+            );
+          })}
         </>
       },
     },
@@ -176,10 +176,10 @@ const AdminGrid = () => {
       console.log(error);
     }
   };
-  const logoutAdmin = async()=>{
+  const logoutAdmin = async () => {
     try {
       const response = await user.logout(token);
-      if(response.status === 200 && response.data.is_success){
+      if (response.status === 200 && response.data.is_success) {
         navigate('/login')
       }
     } catch (error) {
@@ -192,8 +192,10 @@ const AdminGrid = () => {
   }, []);
   return (
     <>
-      <Button onClick={logoutAdmin}>Logout</Button>
-      <h4>Admin Grid</h4>
+      <div className="my-4">
+        <Button className="mr-3" onClick={logoutAdmin} style={{ float: 'right', color: 'white', backgroundColor: '#002856' }}>Logout</Button>
+        <h2 style={{ color: '#002856' }} className='fw-bold ml-3'>ORDERES:</h2>
+      </div>
       <ReactDataGrid
         idProperty="id"
         columns={columns}

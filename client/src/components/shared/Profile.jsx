@@ -173,7 +173,7 @@ const Profile = () => {
             </thead>
             <tbody>
               {profile && profile.carts_data &&
-                profile.carts_data.slice(0, 3).map((item) => {
+                profile.carts_data.slice(0, 1).map((item) => {
                   return (
                     <tr>
                       <td>{item._id}</td>

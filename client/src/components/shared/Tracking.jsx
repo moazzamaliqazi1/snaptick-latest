@@ -64,7 +64,7 @@ const Tracking = () => {
                   <b>Track my Order</b>
                 </button>
               </div>
-              <h4 className="fw-bold mt-4" style={{ color: '#002856' }}> {status ? `"Your order is ${status}"` : ""} </h4>
+              <h4 className="fw-bold mt-4" style={{ color: '#002856' }}> {status ? `"Your order is ${status}"` : "" } </h4>
 
               <div className="col-md-4"></div>
             </div>

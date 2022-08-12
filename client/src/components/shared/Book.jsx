@@ -94,7 +94,7 @@ const Book = () => {
               theme="light"
             />
 
-            <button onClick={uploadImages} className=" py-2 px-3" style={{ float: 'right', color: 'white', backgroundColor: '#002856' }}>Add to Cart</button>
+            <button onClick={uploadImages} className=" py-2 px-3" style={{ float: 'right', color: 'white', backgroundColor: '#002856' }}><a onClick={() => window.location.replace("/")} style={{color: 'white'}}>Add to Cart</a></button>
 
           </div>
         </div>

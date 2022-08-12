@@ -52,7 +52,7 @@ exports.cart = {
                 }
             }
             if(data.orders.length==zeroQuantityIds.length){
-                utils.response.response(res, 'Please add items in cart', false, 200, null);
+                utils.response.response(res, 'Please select some items to place order', false, 200, null);
             }
             else{
                 await cartService.removeIDs(zeroQuantityIds)
